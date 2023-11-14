@@ -6,29 +6,44 @@
     <title>Login</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/ecology.png" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
   
 </head>
 <body>
     <div class="img"></div>
-    <main class="wrapper">
-        <div class="title">
-            <span>Login Form</span>
+    <main class="container">
+        <div class="logo">
+            <img src="images/ten13.png" alt="">
+            <h3>Seja Bem Vindo !</h3>
+            <p>Insira seu login e senha para acessar o site.</p>
         </div>
         <form action="#">
-            <div class="row">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
-            <input type="text" placeholder="Insira seu CPF" required>
+            <div class="inputs">
+            <span class="material-symbols-outlined">
+            group
+            </span>
+           
+            <input type="text" autocomplete="off" maxlength="14" placeholder="Insira seu CPF" id="cpf" required>
             </div>
-            <div class="row">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg>
-            <input type="text" placeholder="Insira sua senha" required>
+            <div class="inputs">
+            <span class="material-symbols-outlined">
+            lock
+            </span>
+            
+            <input type="password" placeholder="Insira sua senha" required>
             </div>
-            <div class="row">
+            <div class="inputs button">
             <input type="submit" value="Entrar">
             </div>
 
         </form>
     </main>
+        <script>
+            $(document).ready(function(){
+                $("#cpf").mask("000.000.000-00");
+            });
+        </script>
 </body>
 </html>
