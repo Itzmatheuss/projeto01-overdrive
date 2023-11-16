@@ -5,7 +5,7 @@
     width: 100%;
     height: 100%;
     z-index: -1; /* Set a lower z-index for .img to make it appear behind main */
-    background: url('../views/fundo2.jpg') center/cover; /* Replace 'your-image.jpg' with your actual image path */
+    background: url('fundo2.jpg') center/cover; /* Replace 'your-image.jpg' with your actual image path */
 }
 .row .col-md-12 .card .card-header{
     background-color: #7fffd4;
@@ -37,7 +37,7 @@
     padding-top: 5px;
     
 }
-.tb-custom{
-    background-color: #7fffd4;
+.table thead{
+    background-color: #60EAEB;
     color: #000;
 }
