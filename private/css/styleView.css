@@ -1,0 +1,43 @@
+.img {
+    position: absolute; /* Set position to absolute to position it relative to the body */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Set a lower z-index for .img to make it appear behind main */
+    background: url('../views/fundo2.jpg') center/cover; /* Replace 'your-image.jpg' with your actual image path */
+}
+.row .col-md-12 .card .card-header{
+    background-color: #7fffd4;
+}
+.card .card-body{
+    font-weight: bold;
+    color: #000;
+}
+.card .card-header h4{
+    font-weight: bold;
+    color: #000;
+}
+.bg-custom{
+    background-color: #7fffd4;
+    color: #000;
+}
+.row .col-md-12 .card{
+    border: 1px solid #637a75;
+}
+.box-search{
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.btn-primary {
+    background-color: red;
+    padding-top: 5px;
+    
+}
+.tb-custom{
+    background-color: #7fffd4;
+    color: #000;
+}

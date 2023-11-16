@@ -5,4 +5,4 @@ define('DBHOST', 'localhost');
 define('DBUSER', 'root');
 define('DBPASS', '');
 
-define('ROOT','http://localhost/estagiopoo/projeto01-overdrive/public');
+$conn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME) or die ('Não foi possível se conectar ao banco');
