@@ -13,6 +13,9 @@ $query_run = mysqli_query($conn,$query);
     <title>Verificar Empresas </title>
     <link rel="stylesheet" href="../css/styleView.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+
+    <link rel="shortcut icon" href="ecology.png" type="image/x-icon">
+
     <script src="../bootstrap/js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
