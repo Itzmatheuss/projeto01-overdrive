@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(/public/fonts/Roboto/Roboto-Regular.ttf) format('opentype') ;
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family:'Roboto';
+    font-size: 18px;
+}
 .img {
     position: absolute; /* Set position to absolute to position it relative to the body */
     top: 0;
@@ -10,10 +20,7 @@
 .row .col-md-12 .card .card-header{
     background-color: #7fffd4;
 }
-.card .card-body{
-    font-weight: bold;
-    color: #000;
-}
+
 .card .card-header h4{
     font-weight: bold;
     color: #000;
@@ -32,12 +39,3 @@
     gap: 5px;
 }
 
-.btn-primary {
-    background-color: red;
-    padding-top: 5px;
-    
-}
-.table thead{
-    background-color: #60EAEB;
-    color: #000;
-}

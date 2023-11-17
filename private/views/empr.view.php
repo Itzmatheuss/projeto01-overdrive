@@ -44,8 +44,8 @@ $query_run = mysqli_query($conn,$query);
                          <a href="user.view.php" class="btn btn-info float-end">Ver Usuários</a>
                         </h4>    
                     </div>
-                    <table class="table table-bordered table-striped">
-                        <div class="card-body">
+                    <div class="card-body bg-custom">
+                        <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th>ID</th>
