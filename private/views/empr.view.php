@@ -2,7 +2,7 @@
 include_once '../core/config.php';
 
 $query = "SELECT * FROM empresas";
-$query_run = mysqli_query($conn,$query);
+$query_run = $conn->query($query);
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ $query_run = mysqli_query($conn,$query);
     <nav class="navbar bg-custom">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Olá <?= $_SESSION['user'] ?> </span>
-            <a href="#" class="btn btn-danger float-end"> Sair</a>
+            <a href="index.php" class="btn btn-danger float-end"> Sair</a>
         </div>
     </nav>
     <div class="img"></div>
