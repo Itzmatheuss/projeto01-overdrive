@@ -1,7 +1,5 @@
 <?php
-include_once '../core/config.php';
-
-
+session_start();
 ?>
 
 <!DOCTYPE html>

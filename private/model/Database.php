@@ -7,6 +7,7 @@ define('DBPASS', '');
 define('ROOT', '/estagiopoo/projeto01-overdrive');
 
 require_once("User.php");
+session_start();
 
 class Database{
     private $banco;
@@ -29,10 +30,12 @@ class Database{
         if($usuario){
             if($senha== $usuario[0]['senha']){
                 if($usuario[0]['admin'] == 1){
+                    $_SESSION['user'] = $usuario[0]['nome'];
                     header('Location:'.ROOT. '/private/views/adminUser.view.php');
                     exit();
                 } else {
-                    header('Location:'.ROOT. 'private/views/user.view.php');
+                    $_SESSION['user'] = $usuario[0]['nome'];
+                    header('Location:'.ROOT. '/private/views/user.view.php');
                     exit();
                 }
             } else {
