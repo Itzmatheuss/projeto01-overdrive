@@ -16,7 +16,6 @@ class Database{
     public function __construct()
     {
         $this->banco = new PDO('mysql:host='.DBHOST.';dbname='.DBNAME,DBUSER,DBPASS);
-
     }
   
     public function login($cpf,$senha)
@@ -30,29 +29,27 @@ class Database{
         $usuario = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
         if($usuario){
-            if($senha== $usuario['senha']){
-                if($usuario['admin'] == 1){
+            if($senha== $usuario[0]['senha']){
+                if($usuario[0]['admin'] == 1){
                     header('Location: /estagiopoo/projeto01-overdrive/private/views/adminUser.view.php');
                     exit();
-                }else{
+                } else {
                     header('Location: /estagiopoo/projeto01-overdrive/private/views/user.view.php');
                     exit();
                 }
-            }else {
-                    // Senha incorreta, redirecione de volta com uma mensagem de erro
-                    $_SESSION['mensagem'] = "Senha incorreta. Tente novamente.";
-                    session_destroy();
-                    header('Location:' .ROOT.'/public/index.php');
-                    exit();
-                }
             } else {
-                // Usuário não encontrado, redirecione de volta com uma mensagem de erro
-                $_SESSION['mensagem'] = "Usuário não encontrado. Tente novamente.";
+                // Senha incorreta, redirecione de volta com uma mensagem de erro
+                $_SESSION['mensagem'] = "Senha incorreta. Tente novamente.";
                 session_destroy();
                 header('Location:' .ROOT.'/public/index.php');
                 exit();
-            
             }
-       
-        }   
+        } else {
+            // Usuário não encontrado, redirecione de volta com uma mensagem de erro
+            $_SESSION['mensagem'] = "Usuário não encontrado. Tente novamente.";
+            session_destroy();
+            header('Location:' .ROOT.'/public/index.php');
+            exit();
+        }
     }
+}
