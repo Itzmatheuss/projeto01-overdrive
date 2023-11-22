@@ -1,7 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 define('DBNAME', 'projeto01-overdrive');
 define('DBHOST', 'localhost');
 define('DBUSER', 'root');
@@ -31,10 +29,10 @@ class Database{
         if($usuario){
             if($senha== $usuario[0]['senha']){
                 if($usuario[0]['admin'] == 1){
-                    header('Location: /estagiopoo/projeto01-overdrive/private/views/adminUser.view.php');
+                    header('Location:'.ROOT. '/private/views/adminUser.view.php');
                     exit();
                 } else {
-                    header('Location: /estagiopoo/projeto01-overdrive/private/views/user.view.php');
+                    header('Location:'.ROOT. 'private/views/user.view.php');
                     exit();
                 }
             } else {
