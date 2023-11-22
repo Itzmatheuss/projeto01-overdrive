@@ -1,9 +1,7 @@
 <?php
 include_once '../core/config.php';
 
-$stmt = $conn->prepare("SELECT id_empresa, nome, nome_fantasia, cnpj, telefone, endereco, responsavel FROM empresas");
-$stmt->execute();
-$result = $stmt->get_result();
+
 ?>
 
 <!DOCTYPE html>

@@ -1,8 +1,7 @@
 <?php
 include_once '../core/config.php';
 
-$query = "SELECT * FROM empresas";
-$query_run = $conn->query($query);
+
 ?>
 
 <!DOCTYPE html>

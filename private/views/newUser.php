@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Usuários</title>
-    <link rel="shortcut icon" href="/public/images/ecology.png" type="image/x-icon">
+    <link rel="shortcut icon" href="ecology.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/newUserstyle.css">
 </head>
 <body>
@@ -45,7 +45,7 @@
 
                         <div class="input-field">
                             <label for="endereco">Endereço</label>
-                            <input type="password" placeholder="Endereço" id="endereco" required>
+                            <input type="text" placeholder="Endereço" id="endereco" required>
                         </div>
 
                         <div class="input-field">
@@ -60,13 +60,22 @@
 
                         <div class="input-field-type">
                          
-                            <label for="tipo">Tipo de Usuário</label>
+                            <div class="label"><label for="tipo">Tipo de Usuário</label></div>
                             <label for="admin">Adminstrador</label>
                             <input type="radio" name="tipo" value="admin" id="admin" required>
                             <label for="user">Comum</label>
                             <input type="radio" name="tipo" value="user" id="user" required>
                         </div>
                     </div>
+                    
+                        <div class="button">
+                            <button class="btn-back">
+                                <span class="btnText">Voltar</span>
+                            </button>
+                            <button class="btn-send">
+                                <span class="btnText">Enviar</span>
+                            </button>
+                        </div>
                 </div>
             </div>
         </form>
