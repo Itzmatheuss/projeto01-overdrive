@@ -19,7 +19,7 @@
             <h3>Seja Bem Vindo !</h3>
             <p>Insira seu login e senha para acessar o site.</p>
         </div>
-        <form action="/private/controllers/login.php">
+        <form action="/estagiopoo/projeto01-overdrive/private/controllers/login.php" method="post">
             <div class="inputs">
             <span class="material-symbols-outlined">
             group
@@ -37,7 +37,6 @@
             <div class="inputs button">
             <input type="submit" value="Entrar">
             </div>
-
         </form>
     </main>
         <script>

@@ -1,9 +1,17 @@
 <?php
+
 session_start();
-use Database;
+require_once("../model/Database.php");
 
 if(empty($_POST['cpf']) || empty($_POST['senha'])){
-    header('Location: /public/index.php');
+    session_destroy();
+    header('Location: /estagiopoo/projeto01-overdrive/public/index.php');
+    echo "Fail";
     exit;
+}else{
+    $conn = new Database();
+    $login = $conn->login($_POST['cpf'],$_POST['senha']);
+
+    echo "Boa";
 }
 

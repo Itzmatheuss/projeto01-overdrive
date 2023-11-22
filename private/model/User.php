@@ -1,6 +1,5 @@
 <?php
 
-use Database;
 
 class Usuarios{
     public $id_user;
@@ -13,9 +12,8 @@ class Usuarios{
     public $admin;
     
 
-    public function __construct($id_user,$nome,$cpf,$senha,$endereco,$telefone,$admin)
+    public function __construct($nome,$cpf,$senha,$endereco,$telefone,$admin)
     {
-        $this->id_user=$id_user;
         $this->nome=$nome;
         $this->cpf=$cpf;
         $this->senha=$senha;
