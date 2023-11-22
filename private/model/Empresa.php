@@ -9,7 +9,17 @@ class Empresa{
     public $telefone;
     public $responsavel;
     
-
+    public function __construct($id_empresa,$nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsavel)
+    {
+        $this->id_empresa=$id_empresa;
+        $this->nome=$nome;
+        $this->nome_fantasia=$nome_fantasia;
+        $this->cnpj=$cnpj;
+        $this->endereco=$endereco;
+        $this->telefone=$telefone;
+        $this->responsavel=$responsavel;
+    }
+    
     public function getTelefone()
     {
         return $this->telefone;

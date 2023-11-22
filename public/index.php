@@ -19,20 +19,20 @@
             <h3>Seja Bem Vindo !</h3>
             <p>Insira seu login e senha para acessar o site.</p>
         </div>
-        <form action="#">
+        <form action="/private/controllers/login.php">
             <div class="inputs">
             <span class="material-symbols-outlined">
             group
             </span>
            
-            <input type="text" autocomplete="off" maxlength="14" placeholder="Insira seu CPF" id="cpf" required>
+            <input type="text" autocomplete="off" maxlength="14" placeholder="Insira seu CPF" id="cpf" name="cpf" required>
             </div>
             <div class="inputs">
             <span class="material-symbols-outlined">
             lock
             </span>
             
-            <input type="password" placeholder="Insira sua senha" required>
+            <input type="password" placeholder="Insira sua senha" name="senha" required>
             </div>
             <div class="inputs button">
             <input type="submit" value="Entrar">

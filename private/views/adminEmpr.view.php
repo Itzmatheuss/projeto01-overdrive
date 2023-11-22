@@ -37,12 +37,14 @@ include_once '../core/config.php';
     </div>
 
     <div class="container mt-4">
+        <!-- <?php include('mensagem.php');?> -->
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-custom">
                         <h4>Empresas Cadastradas
-                         <a href="user.view.php" class="btn btn-info float-end">Ver Usuários</a>
+                         <a href="adminUser.view.php" class="btn btn-info float-end mx-3">Ver Usuários</a>
+                         <a href="newEmpresa.php" class="btn btn-info float-end">Cadastrar Empresa</a>
                         </h4>    
                     </div>
                     <div class="card-body bg-custom">
@@ -56,6 +58,7 @@ include_once '../core/config.php';
                                     <th>Telefone</th>
                                     <th>Endereço</th>
                                     <th>Responsavel</th>
+                                    <th>Editar / Deletar</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,6 +72,7 @@ include_once '../core/config.php';
                                                 <td>{$row['telefone']}</td>
                                                 <td>{$row['endereco']}</td>
                                                 <td>{$row['responsavel']}</td>
+                                                
                                             </tr>";
                         
                                 ?>

@@ -1,8 +1,8 @@
 <?php
 
-Trait Database{
+trait Database{
 
-    private function connect(){
+    public function connect(){
         $string = "mysql:hostname=".DBHOST.";dbname=".DBNAME;
         $conn = new PDO($string,DBUSER,DBPASS);
         return $conn;

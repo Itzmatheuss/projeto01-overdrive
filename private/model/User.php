@@ -1,5 +1,7 @@
 <?php
 
+use Database;
+
 class Usuarios{
     public $id_user;
     public $nome;
@@ -9,6 +11,18 @@ class Usuarios{
     public $endereco;
     public $carro;
     public $admin;
+    
+
+    public function __construct($id_user,$nome,$cpf,$senha,$endereco,$telefone,$admin)
+    {
+        $this->id_user=$id_user;
+        $this->nome=$nome;
+        $this->cpf=$cpf;
+        $this->senha=$senha;
+        $this->telefone=$telefone;
+        $this->endereco=$endereco;
+        $this->admin=$admin;
+    }
     
 
     public function getTelefone()

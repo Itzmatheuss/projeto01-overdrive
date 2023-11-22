@@ -145,8 +145,7 @@ form .btn-send:hover{
     max-width: 200px;
     width: 100%;
     border: none;
-    outline: none;
-    color: #fff;
+    
     border-radius: 5px;
     margin: 25px 0;
     background-color: #f44040;
@@ -156,4 +155,9 @@ form .btn-send:hover{
 
 form .btn-back:hover{
     background-color: #f22626;
+}
+
+.container form .btn-back a{
+    text-decoration: none;
+    color: #fff;
 }
