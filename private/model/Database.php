@@ -7,7 +7,7 @@ define('DBPASS', '');
 define('ROOT', '/estagiopoo/projeto01-overdrive');
 
 require_once("User.php");
-session_start();
+
 
 class Database{
     private $banco;

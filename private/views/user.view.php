@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+require_once('../controllers/autenticacao.php');
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@ session_start();
     <nav class="navbar bg-custom">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Olá, <?= $_SESSION['user'] ?> </span>
-            <a href="index.php" class="btn btn-danger float-end"> Sair</a>
+            <a href="../controllers/sair.php" class="btn btn-danger float-end"> Sair</a>
         </div>
     </nav>
     <div class="img"></div>
