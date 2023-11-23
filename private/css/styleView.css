@@ -8,6 +8,8 @@
     font-family:'Roboto';
     font-size: 18px;
 }
+
+
 .img {
     position: absolute; /* Set position to absolute to position it relative to the body */
     top: 0;
@@ -39,3 +41,10 @@
     gap: 5px;
 }
 
+
+form .box-search input:is(:focus,:valid){
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.699);
+    outline: none;
+    border: none;
+    
+}

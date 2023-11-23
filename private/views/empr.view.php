@@ -26,14 +26,16 @@ require_once('../controllers/autenticacao.php');
     </nav>
     <div class="img"></div>
     
-    <div class="box-search">
-        <input type="search" class="form-control w-25" placeholder="Pesquisar" id="search">
-        <button onclick="searchData()" class="btn btn-primary ">
+    <form action="empr.view.php" method="post">
+        <div class="box-search">
+            <input type="search" class="form-control w-25" placeholder="Pesquisar Nome" id="search" name="search">
+            <button class="btn btn-primary ">
             <span class="material-symbols-outlined mt-1">
                 search
             </span>
-        </button>
-    </div>
+            </button>
+        </div>
+    </form>
 
     <div class="container mt-4">
         <div class="row">
@@ -60,7 +62,7 @@ require_once('../controllers/autenticacao.php');
                             <tbody>
                                 <?php
                                 $conn = new Database;
-                                $result = $conn->exibirEmpresas();
+                                $result = $conn->pesquisaEmpresa();
                                     foreach($result as $row){
                                         echo "<tr>
                                                 <td>{$row['id_empresa']}</td>

@@ -8,7 +8,7 @@ require_once('../controllers/autenticacao.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Novo Usuários</title>
-    <link rel="shortcut icon" href="ecology.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../views/ecology.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/newUserstyle.css">
     <script src="../bootstrap/js/jquery-3.7.1.min.js"></script>
     <script src="../bootstrap/js/jquery.mask.min.js"></script>
@@ -76,9 +76,7 @@ require_once('../controllers/autenticacao.php');
                     </div>
                     
                         <div class="button">
-                            <button class="btn-back">
-                                <a href="adminUser.view.php">Voltar</a>
-                            </button>
+                                <a href="../views/adminUser.view.php" class="btn-back">Voltar</a>
                             <button class="btn-send">
                                 <span class="btnText">Enviar</span>
                             </button>

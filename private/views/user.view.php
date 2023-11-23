@@ -19,20 +19,22 @@ require_once('../model/Database.php');
 <body>
     <nav class="navbar bg-custom">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Olá, <?= $_SESSION['user'] ?> </span>
+            <span class="navbar-brand mb-0 h1">Olá <?= $_SESSION['user'] ?> </span>
             <a href="../controllers/sair.php" class="btn btn-danger float-end"> Sair</a>
         </div>
     </nav>
     <div class="img"></div>
     
-    <div class="box-search">
-        <input type="search" class="form-control w-25" placeholder="Pesquisar" id="search">
-        <button onclick="searchData()" class="btn btn-primary ">
-        <span class="material-symbols-outlined mt-1">
-            search
-        </span>
-        </button>
-    </div>
+    <form action="user.view.php" method="post">
+        <div class="box-search">
+            <input type="search" class="form-control w-25" placeholder="Pesquisar Nome" id="search" name="search">
+            <button class="btn btn-primary ">
+            <span class="material-symbols-outlined mt-1">
+                search
+            </span>
+            </button>
+        </div>
+    </form>
 
     <div class="container mt-4">
         <div class="row">
@@ -60,7 +62,7 @@ require_once('../model/Database.php');
                             <tbody>
                                 <?php
                                     $conn = new Database;
-                                    $result = $conn->exibirUsuarios();
+                                    $result = $conn->pesquisaUsuario();
                                     foreach($result as $row){
                                         echo "<tr>
                                                 <td>{$row['id_user']}</td>
