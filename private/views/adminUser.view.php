@@ -1,6 +1,7 @@
 <?php
 
 require_once('../controllers/autenticacao.php');
+require_once('../model/Database.php');
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +62,9 @@ require_once('../controllers/autenticacao.php');
                             </thead>
                             <tbody>
                                 <?php
-                                    while($row = $result->fetch_assoc())
+                                    $conn = new Database;
+                                    $result = $conn->exibirUsuarios();
+                                    foreach($result as $row){
                                         echo "<tr>
                                                 <td>{$row['id_user']}</td>
                                                 <td>{$row['nome']}</td>
@@ -71,8 +74,20 @@ require_once('../controllers/autenticacao.php');
                                                 <td>{$row['endereco']}</td>
                                                 <td>{$row['carro']}</td>
                                                 <td>{$row['empresa']}</td>
+                                                <td><div class='d-inline-block'>
+                                                    <a href='../controllers/editUser.php' class='mx-3' >
+                                                        <span class='material-symbols-outlined'>
+                                                        edit_note
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <a href='#' >
+                                                    <span class='material-symbols-outlined'>
+                                                    delete
+                                                    </span>
+                                                </a>
                                             </tr>";
-                            
+                                    }
                                 ?>
                             </tbody>
                         </table>

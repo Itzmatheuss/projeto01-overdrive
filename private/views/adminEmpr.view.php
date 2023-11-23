@@ -1,6 +1,7 @@
 <?php
 
 require_once('../controllers/autenticacao.php');
+require_once('../model/Database.php');
 ?>
 
 <!DOCTYPE html>
@@ -57,22 +58,35 @@ require_once('../controllers/autenticacao.php');
                                     <th>Telefone</th>
                                     <th>Endereço</th>
                                     <th>Responsavel</th>
-                                    <th>Editar / Deletar</th>
+                                    <th>Editar/Deletar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    while($row = mysqli_fetch_assoc($query_run))
-                                        echo "<tr>
-                                                <td>{$row['id_empresa']}</td>
-                                                <td>{$row['nome']}</td>
-                                                <td>{$row['nome_fantasia']}</td>
-                                                <td>{$row['cnpj']}</td>
-                                                <td>{$row['telefone']}</td>
-                                                <td>{$row['endereco']}</td>
-                                                <td>{$row['responsavel']}</td>
-                                                
-                                            </tr>";
+                                     $conn = new Database;
+                                     $result = $conn->exibirEmpresas();
+                                         foreach($result as $row){
+                                             echo "<tr>
+                                                     <td>{$row['id_empresa']}</td>
+                                                     <td>{$row['nome']}</td>
+                                                     <td>{$row['nome_fantasia']}</td>
+                                                     <td>{$row['cnpj']}</td>
+                                                     <td>{$row['telefone']}</td>
+                                                     <td>{$row['endereco']}</td>
+                                                     <td>{$row['responsavel']}</td>
+                                                     <td><div class='d-inline-block'>
+                                                     <a href='../controllers/editEmpresa.php' class='mx-3' >
+                                                         <span class='material-symbols-outlined'>
+                                                         edit_note
+                                                         </span>
+                                                     </a></div>
+                                                        <a href='#' >
+                                                            <span class='material-symbols-outlined'>
+                                                            delete
+                                                            </span>
+                                                        </a>
+                                                 </tr>";
+                                         }
                         
                                 ?>
                             </tbody>

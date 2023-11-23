@@ -59,7 +59,9 @@ require_once('../controllers/autenticacao.php');
                             </thead>
                             <tbody>
                                 <?php
-                                    while($row = mysqli_fetch_assoc($query_run))
+                                $conn = new Database;
+                                $result = $conn->exibirEmpresas();
+                                    foreach($result as $row){
                                         echo "<tr>
                                                 <td>{$row['id_empresa']}</td>
                                                 <td>{$row['nome']}</td>
@@ -69,7 +71,7 @@ require_once('../controllers/autenticacao.php');
                                                 <td>{$row['endereco']}</td>
                                                 <td>{$row['responsavel']}</td>
                                             </tr>";
-                        
+                                    }
                                 ?>
                             </tbody>
                     </table>

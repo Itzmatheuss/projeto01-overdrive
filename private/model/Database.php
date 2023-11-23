@@ -41,16 +41,30 @@ class Database{
             } else {
                 // Senha incorreta, redirecione de volta com uma mensagem de erro
                 $_SESSION['mensagem'] = "Senha incorreta. Tente novamente.";
-                session_destroy();
                 header('Location:' .ROOT.'/public/index.php');
                 exit();
             }
         } else {
             // Usuário não encontrado, redirecione de volta com uma mensagem de erro
             $_SESSION['mensagem'] = "Usuário não encontrado. Tente novamente.";
-            session_destroy();
             header('Location:' .ROOT.'/public/index.php');
             exit();
         }
+    }
+
+    public function exibirUsuarios(){
+        $query="SELECT * FROM usuarios";
+        $query_run = $this->banco->prepare($query);
+        $query_run->execute();
+
+        return $query_run->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function exibirEmpresas(){
+        $query="SELECT * FROM empresas";
+        $query_run = $this->banco->prepare($query);
+        $query_run->execute();
+
+        return $query_run->fetchAll(PDO::FETCH_ASSOC);
     }
 }

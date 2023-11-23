@@ -1,6 +1,7 @@
 <?php
 
 require_once('../controllers/autenticacao.php');
+require_once('../model/Database.php');
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +59,9 @@ require_once('../controllers/autenticacao.php');
                             </thead>
                             <tbody>
                                 <?php
-                                    while($row = $result->fetch_assoc())
+                                    $conn = new Database;
+                                    $result = $conn->exibirUsuarios();
+                                    foreach($result as $row){
                                         echo "<tr>
                                                 <td>{$row['id_user']}</td>
                                                 <td>{$row['nome']}</td>
@@ -69,7 +72,7 @@ require_once('../controllers/autenticacao.php');
                                                 <td>{$row['carro']}</td>
                                                 <td>{$row['empresa']}</td>
                                             </tr>";
-                            
+                                    }
                                 ?>
                             </tbody>
                         </table>
