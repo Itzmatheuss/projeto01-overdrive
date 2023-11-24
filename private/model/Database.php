@@ -21,14 +21,14 @@ class Database{
     {
         $this->banco = new PDO('mysql:host='.DBHOST.';dbname='.DBNAME,DBUSER,DBPASS);
     }
-  
+    
     public function login($cpf,$senha)
     {
         $consulta = $this->banco->prepare("SELECT * FROM usuarios WHERE cpf = :cpf");
-
+        
         // Previnindo SQL injection
         $consulta->bindParam(':cpf',$cpf);
-       
+        
         $consulta->execute();
         $usuario = $consulta->fetchAll(PDO::FETCH_ASSOC);
         print_r($usuario);
@@ -57,9 +57,30 @@ class Database{
             exit();
         }
     }
-
     
-    public function viewUsuario(){
+    public function viewEmpresas(){
+        if(isset($_POST['search'])){
+    
+            $pesquisa = '%'. $_POST['search'].'%';
+            $query = "SELECT * FROM empresas WHERE nome LIKE :pesquisa";
+    
+            $query_run = $this->banco->prepare($query);
+            //Proteção Sql injection
+            $query_run->bindParam(':pesquisa',$pesquisa,PDO::PARAM_STR);
+    
+            $query_run->execute();
+    
+            return $query_run->fetchAll(PDO::FETCH_ASSOC);
+        }else{
+            $query="SELECT * FROM empresas";
+            $query_run = $this->banco->prepare($query);
+            $query_run->execute();
+    
+            return $query_run->fetchAll(PDO::FETCH_ASSOC);
+        }
+    }
+    
+    public function viewUsuarios(){
         if(isset($_POST['search'])){
 
             $pesquisa = '%'. $_POST['search'].'%';
@@ -81,6 +102,8 @@ class Database{
         }
     }
 
+
+
     public function pesquisaUsuario($id)
     {
         $query = "SELECT * FROM usuarios WHERE id_user = :id";
@@ -93,6 +116,7 @@ class Database{
         
         if($dados){
             return array(
+            'id_user' => $dados[0]['id_user'],
             'nome' => $dados[0]['nome'],
             'cpf' => $dados[0]['cpf'],
             'senha' => $dados[0]['senha'],
@@ -132,34 +156,13 @@ class Database{
         );
 
         } else {
-        // Redirecionar ou mostrar mensagem de usuário não encontrado
+            // Redirecionar ou mostrar mensagem de usuário não encontrado
             header("Location: adminEmpr.view.php");
             exit();
         }
     }
-
-    public function viewEmpresa(){
-        if(isset($_POST['search'])){
-
-            $pesquisa = '%'. $_POST['search'].'%';
-            $query = "SELECT * FROM empresas WHERE nome LIKE :pesquisa";
-
-            $query_run = $this->banco->prepare($query);
-            //Proteção Sql injection
-            $query_run->bindParam(':pesquisa',$pesquisa,PDO::PARAM_STR);
-
-            $query_run->execute();
-
-            return $query_run->fetchAll(PDO::FETCH_ASSOC);
-        }else{
-            $query="SELECT * FROM empresas";
-            $query_run = $this->banco->prepare($query);
-            $query_run->execute();
-
-            return $query_run->fetchAll(PDO::FETCH_ASSOC);
-        }
-    }
-
+    
+    
     public function cadastraUsuario($usuario)
     {
         $query = "INSERT INTO usuarios (nome, cpf, senha, cnh, telefone, endereco, carro, empresa, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -205,4 +208,35 @@ class Database{
 
         
     }
+
+    public function alterUser($usuario,$id)
+    {
+        $query = "UPDATE usuarios SET nome = :nome, cpf = :cpf, senha = :senha, cnh = :cnh, telefone = :telefone, endereco = :endereco, carro = :carro, empresa = :empresa, admin = :admin WHERE id_user = :id";
+
+
+        $query_run= $this->banco->prepare($query);
+        $query_run->bindParam(':id',$id);
+
+        $dados = array(
+            $_POST['nome'],
+            $_POST['cpf'],
+            $_POST['senha'],
+            $_POST['cnh'],
+            $_POST['telefone'],
+            $_POST['endereco'],
+            $_POST['carro'],
+            $_POST['empresa'],
+          
+        );
+
+        if($query_run->execute($dados))
+            return true;
+        return false;
+    }
+       
+    
+
+
+
 }
+    

@@ -32,32 +32,32 @@ $result = $conn->pesquisaEmpresa($id);
                     <div class="fields">
                         <div class="input-field">
                             <label for="nome">Nome da Empresa</label>
-                            <input type="text" placeholder="Nome" id="nome" value="<?=$result['nome']?>">
+                            <input type="text" placeholder="Nome" id="nome" value="<?=$result['nome']?>" name="nome">
                         </div>
 
                         <div class="input-field">
                             <label for="nome_fantasia">Nome Fantasia</label>
-                            <input type="text" placeholder="Nome Fantasia" id="nome_fantasia" value="<?=$result['nome_fantasia']?>">
+                            <input type="text" placeholder="Nome Fantasia" id="nome_fantasia" value="<?=$result['nome_fantasia']?>" name="nome_fantasia">
                         </div>
 
                         <div class="input-field">
                             <label for="cnpj">CNPJ</label>
-                            <input type="text" placeholder="CNPJ" id="cnpj" value="<?=$result['cnpj']?>">
+                            <input type="text" placeholder="CNPJ" id="cnpj" value="<?=$result['cnpj']?>" name="cnpj">
                         </div>
 
                         <div class="input-field">
                             <label for="endereco">Endereço</label>
-                            <input type="text" placeholder="Endereço" id="endereco" value="<?=$result['endereco']?>">
+                            <input type="text" placeholder="Endereço" id="endereco" value="<?=$result['endereco']?>" name="endereco">
                         </div>
 
                         <div class="input-field">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" placeholder="Telefone" id="telefone" value="<?=$result['telefone']?>">
+                            <input type="tel" placeholder="Telefone" id="telefone" value="<?=$result['telefone']?>" name="telefone">
                         </div>
 
                         <div class="input-field">
                             <label for="responsavel">Responsável</label>
-                            <input type="text" placeholder="Responsável" id="responsavel" value="<?=$result['responsavel']?>">
+                            <input type="text" placeholder="Responsável" id="responsavel" value="<?=$result['responsavel']?>" name="responsavel">
                         </div>
                     </div>
                     

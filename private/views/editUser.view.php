@@ -35,42 +35,42 @@ $result = $conn->pesquisaUsuario($id);
                     <div class="fields">
                         <div class="input-field">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" placeholder="Nome" id="nome" value="<?=$result['nome']?>">
+                            <input type="text" placeholder="Alterar Nome" id="nome" value="<?=$result['nome']?>"name="nome">
                         </div>
 
                         <div class="input-field">
                             <label for="cpf">CPF</label>
-                            <input type="text" placeholder="CPF" id="cpf" value="<?=$result['cpf']?>">
+                            <input type="text" placeholder="Alterar CPF" id="cpf" value="<?=$result['cpf']?>"name="cpf">
                         </div>
 
                         <div class="input-field">
                             <label for="senha">Senha</label>
-                            <input type="password" placeholder="Escolha sua senha" id="senha" value="<?=$result['senha']?>">
+                            <input type="password" placeholder="Alterar Senha" id="senha" name="senha">
                         </div>
 
                         <div class="input-field">
                             <label for="cnh">CNH</label>
-                            <input type="text" placeholder="CNH" id="cnh" value="<?=$result['cnh']?>">
+                            <input type="text" placeholder="Alterar CNH" id="cnh" value="<?=$result['cnh']?>"name="cnh">
                         </div>
 
                         <div class="input-field">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" placeholder="Telefone" id="telefone" value="<?=$result['telefone']?>">
+                            <input type="tel" placeholder="Alterar Telefone" id="telefone" value="<?=$result['telefone']?>"name="telefone">
                         </div>
 
                         <div class="input-field">
                             <label for="endereco">Endereço</label>
-                            <input type="text" placeholder="Endereço" id="endereco" value="<?=$result['endereco']?>">
+                            <input type="text" placeholder="Alterar Endereço" id="endereco" value="<?=$result['endereco']?>"name="endereco">
                         </div>
 
                         <div class="input-field">
                             <label for="carro">Carro</label>
-                            <input type="text" placeholder="Carro" id="carro" value="<?=$result['carro']?>">
+                            <input type="text" placeholder="Alterar Carro" id="carro" value="<?=$result['carro']?>"name="carro">
                         </div>
 
                         <div class="input-field">
                             <label for="empresa">Empresa</label>
-                            <input type="text" placeholder="Empresa" id="empresa" value="<?=$result['empresa']?>">
+                            <input type="text" placeholder="Alterar Empresa" id="empresa" value="<?=$result['empresa']?>" name="empresa">
                         </div>
 
                         <div class="input-field-type">
@@ -82,7 +82,7 @@ $result = $conn->pesquisaUsuario($id);
                             <input type="radio" name="tipo" value="0" <?php echo($result['admin'] == '0') ? 'checked' : ''; ?> id="user">
                         </div>
                     </div>
-                    
+                        <input type="hidden" name="id_user" value="<?=$result['id_user']?>">
                         <div class="button">
                                 <a href="adminUser.view.php" class="btn-back">Voltar</a>
                             <button class="btn-send" type="submit" name="edit_user">

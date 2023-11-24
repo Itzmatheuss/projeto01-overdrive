@@ -66,7 +66,7 @@ require_once('../model/Database.php');
                             <tbody>
                                 <?php
                                      $conn = new Database;
-                                     $result = $conn->viewEmpresa();
+                                     $result = $conn->viewEmpresas();
                                          foreach($result as $row){
                                              echo "<tr>
                                                      <td>{$row['id_empresa']}</td>
