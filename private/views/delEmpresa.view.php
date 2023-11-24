@@ -3,8 +3,8 @@ require_once('../model/Database.php');
 
 $conn = new Database;
 $id = $_GET['id_empr'];
-
 $result = $conn->pesquisaEmpresa($id);
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ $result = $conn->pesquisaEmpresa($id);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alterar Empresa</title>
     <link rel="shortcut icon" href="ecology.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/newUserstyle.css">
+    <link rel="stylesheet" href="../css/delUserstyle.css">
     <script src="../bootstrap/js/jquery-3.7.1.min.js"></script>
     <script src="../bootstrap/js/jquery.mask.min.js"></script>
     <script src="../bootstrap/js/mask.js"></script>
@@ -64,7 +64,7 @@ $result = $conn->pesquisaEmpresa($id);
                         <div class="button">
                             <a href="adminEmpr.view.php" class="btn-back" >Voltar</a>
                             <button class="btn-send" type="submit" name="edit_empresa">
-                                <span class="btnText">Alterar</span>
+                                <span class="btnText">DELETAR EMPRESA</span>
                             </button>
                         </div>
                 </div>

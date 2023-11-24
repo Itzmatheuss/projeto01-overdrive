@@ -14,14 +14,14 @@ class Usuario{
     public $admin;
     
 
-    public function __construct($nome,$cpf,$senha,$cnh,$endereco,$telefone,$carro,$empresa,$admin)
+    public function __construct($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin)
     {
         $this->nome=$nome;
         $this->cpf=$cpf;
         $this->senha=$senha;
         $this->cnh=$cnh;
-        $this->endereco=$endereco;
         $this->telefone=$telefone;
+        $this->endereco=$endereco;
         $this->carro=$carro;
         $this->empresa=$empresa;
         $this->admin=$admin;

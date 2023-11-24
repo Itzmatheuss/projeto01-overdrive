@@ -83,7 +83,7 @@ require_once('../model/Database.php');
                                                         </span>
                                                     </a>
                                                 </div>
-                                                <a href='#' >
+                                                <a href='delUser.view.php?id_user={$row['id_user']}' >
                                                     <span class='material-symbols-outlined'>
                                                     delete
                                                     </span>

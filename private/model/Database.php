@@ -162,26 +162,27 @@ class Database{
 
     public function cadastraUsuario($usuario)
     {
-        $query = "INSERT INTO usuarios (nome,cpf,senha,cnh,endereco,telefone,carro,empresa,admin) VALUES (?,?,?,?,?,?,?,?,?) ";
-
+        $query = "INSERT INTO usuarios (nome, cpf, senha, cnh, telefone, endereco, carro, empresa, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
         $dados = array(
-        $usuario->getNome(),
-        $usuario->getCpf(),
-        $usuario->getSenha(),
-        $usuario->getCnh(),
-        $usuario->getEndereco(),
-        $usuario->getTelefone(),
-        $usuario->getCarro(),
-        $usuario->getEmpresa(),
-        $usuario->getAdmin());
-
+            $usuario->getNome(),
+            $usuario->getCpf(),
+            $usuario->getSenha(),
+            $usuario->getCnh(),
+            $usuario->getTelefone(),
+            $usuario->getEndereco(),
+            $usuario->getCarro(),
+            $usuario->getEmpresa(),
+            $usuario->getAdmin()
+        );
+    
         $query_run = $this->banco->prepare($query);
-        
-        if($query_run->execute($dados))
+    
+        if ($query_run->execute($dados)) {
             return true;
+        }
+    
         return false;
-
-        
     }
 
     public function cadastraEmpresa($empresa)
