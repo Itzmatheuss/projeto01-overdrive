@@ -62,7 +62,7 @@ require_once('../controllers/autenticacao.php');
                             <tbody>
                                 <?php
                                 $conn = new Database;
-                                $result = $conn->pesquisaEmpresa();
+                                $result = $conn->viewEmpresa();
                                     foreach($result as $row){
                                         echo "<tr>
                                                 <td>{$row['id_empresa']}</td>

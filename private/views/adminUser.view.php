@@ -65,7 +65,7 @@ require_once('../model/Database.php');
                             <tbody>
                                 <?php
                                     $conn = new Database;
-                                    $result = $conn->pesquisaUsuario();
+                                    $result = $conn->viewUsuario();
                                     foreach($result as $row){
                                         echo "<tr>
                                                 <td>{$row['id_user']}</td>
@@ -77,7 +77,7 @@ require_once('../model/Database.php');
                                                 <td>{$row['carro']}</td>
                                                 <td>{$row['empresa']}</td>
                                                 <td><div class='d-inline-block'>
-                                                    <a href='editUser.view.php' class='mx-3' >
+                                                    <a href='editUser.view.php?id_user={$row['id_user']}' class='mx-3' >
                                                         <span class='material-symbols-outlined'>
                                                         edit_note
                                                         </span>

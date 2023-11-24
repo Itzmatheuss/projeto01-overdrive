@@ -59,7 +59,7 @@ class Database{
     }
 
     
-    public function pesquisaUsuario(){
+    public function viewUsuario(){
         if(isset($_POST['search'])){
 
             $pesquisa = '%'. $_POST['search'].'%';
@@ -81,7 +81,64 @@ class Database{
         }
     }
 
-    public function pesquisaEmpresa(){
+    public function pesquisaUsuario($id)
+    {
+        $query = "SELECT * FROM usuarios WHERE id_user = :id";
+
+        $query_run = $this->banco->prepare($query);
+        $query_run->bindParam(':id',$id);
+        $query_run->execute();
+
+        $dados=$query_run->fetchAll(PDO::FETCH_ASSOC);
+        
+        if($dados){
+            return array(
+            'nome' => $dados[0]['nome'],
+            'cpf' => $dados[0]['cpf'],
+            'senha' => $dados[0]['senha'],
+            'cnh' => $dados[0]['cnh'],
+            'telefone' => $dados[0]['telefone'],
+            'endereco' => $dados[0]['endereco'],
+            'carro' => $dados[0]['carro'],
+            'empresa' => $dados[0]['empresa'],
+            'admin' => $dados[0]['admin'],
+        );
+
+        } else {
+        // Redirecionar ou mostrar mensagem de usuário não encontrado
+            header("Location: adminUser.view.php");
+            exit();
+        }
+    }
+
+    public function pesquisaEmpresa($id)
+    {
+        $query = "SELECT * FROM empresas WHERE id_empresa = :id";
+
+        $query_run = $this->banco->prepare($query);
+        $query_run->bindParam(':id',$id);
+        $query_run->execute();
+
+        $dados=$query_run->fetchAll(PDO::FETCH_ASSOC);
+        
+        if($dados){
+            return array(
+            'nome' => $dados[0]['nome'],
+            'nome_fantasia' => $dados[0]['nome_fantasia'],
+            'cnpj' => $dados[0]['cnpj'],
+            'endereco' => $dados[0]['endereco'],
+            'telefone' => $dados[0]['telefone'],
+            'responsavel' => $dados[0]['responsavel']
+        );
+
+        } else {
+        // Redirecionar ou mostrar mensagem de usuário não encontrado
+            header("Location: adminEmpr.view.php");
+            exit();
+        }
+    }
+
+    public function viewEmpresa(){
         if(isset($_POST['search'])){
 
             $pesquisa = '%'. $_POST['search'].'%';

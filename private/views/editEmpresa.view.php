@@ -1,3 +1,12 @@
+<?php
+require_once('../model/Database.php');
+
+$conn = new Database;
+$id = $_GET['id_user'];
+
+$result = $conn->pesquisaEmpresa($id);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +24,7 @@
     <div class="container">
         <header>Alterar dados da Empresa</header>
 
-        <form action="#">
+        <form action="../controllers/editEmpresa.php" method="post">
             <div class="form-first">
                 <div class="details personal">
                     <span class="title">Detalhes da Empresa</span>
@@ -23,32 +32,32 @@
                     <div class="fields">
                         <div class="input-field">
                             <label for="nome">Nome da Empresa</label>
-                            <input type="text" placeholder="Nome" id="nome">
+                            <input type="text" placeholder="Nome" id="nome" value="<?=$result['nome']?>">
                         </div>
 
                         <div class="input-field">
                             <label for="nome_fantasia">Nome Fantasia</label>
-                            <input type="text" placeholder="Nome Fantasia" id="nome_fantasia">
+                            <input type="text" placeholder="Nome Fantasia" id="nome_fantasia" value="<?=$result['nome_fantasia']?>">
                         </div>
 
                         <div class="input-field">
                             <label for="cnpj">CNPJ</label>
-                            <input type="text" placeholder="CNPJ" id="cnpj">
+                            <input type="text" placeholder="CNPJ" id="cnpj" value="<?=$result['cnpj']?>">
                         </div>
 
                         <div class="input-field">
                             <label for="endereco">Endereço</label>
-                            <input type="text" placeholder="Endereço" id="endereco">
+                            <input type="text" placeholder="Endereço" id="endereco" value="<?=$result['endereco']?>">
                         </div>
 
                         <div class="input-field">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" placeholder="Telefone" id="telefone">
+                            <input type="tel" placeholder="Telefone" id="telefone" value="<?=$result['telefone']?>">
                         </div>
 
                         <div class="input-field">
                             <label for="responsavel">Responsável</label>
-                            <input type="text" placeholder="Responsável" id="responsavel">
+                            <input type="text" placeholder="Responsável" id="responsavel" value="<?=$result['responsavel']?>">
                         </div>
                     </div>
                     

@@ -62,7 +62,7 @@ require_once('../model/Database.php');
                             <tbody>
                                 <?php
                                     $conn = new Database;
-                                    $result = $conn->pesquisaUsuario();
+                                    $result = $conn->viewUsuario();
                                     foreach($result as $row){
                                         echo "<tr>
                                                 <td>{$row['id_user']}</td>
