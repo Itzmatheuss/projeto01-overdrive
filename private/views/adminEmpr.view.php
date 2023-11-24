@@ -46,7 +46,7 @@ require_once('../model/Database.php');
                     <div class="card-header bg-custom">
                         <h4>Empresas Cadastradas
                          <a href="adminUser.view.php" class="btn btn-info float-end mx-3">Ver Usuários</a>
-                         <a href="../controllers/newEmpresa.php" class="btn btn-info float-end">Cadastrar Empresa</a>
+                         <a href="newEmpresa.view.php" class="btn btn-info float-end">Cadastrar Empresa</a>
                         </h4>    
                     </div>
                     <div class="card-body bg-custom">
@@ -77,7 +77,7 @@ require_once('../model/Database.php');
                                                      <td>{$row['endereco']}</td>
                                                      <td>{$row['responsavel']}</td>
                                                      <td><div class='d-inline-block'>
-                                                     <a href='../controllers/editEmpresa.php' class='mx-3' >
+                                                     <a href='editEmpresa.view.php' class='mx-3' >
                                                          <span class='material-symbols-outlined'>
                                                          edit_note
                                                          </span>

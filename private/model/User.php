@@ -1,24 +1,29 @@
 <?php
 
 
-class Usuarios{
+class Usuario{
     public $id_user;
     public $nome;
     public $cpf;
+    public $cnh;
     public $senha;
     public $telefone;
     public $endereco;
+    public $empresa;
     public $carro;
     public $admin;
     
 
-    public function __construct($nome,$cpf,$senha,$endereco,$telefone,$admin)
+    public function __construct($nome,$cpf,$senha,$cnh,$endereco,$telefone,$carro,$empresa,$admin)
     {
         $this->nome=$nome;
         $this->cpf=$cpf;
         $this->senha=$senha;
-        $this->telefone=$telefone;
+        $this->cnh=$cnh;
         $this->endereco=$endereco;
+        $this->telefone=$telefone;
+        $this->carro=$carro;
+        $this->empresa=$empresa;
         $this->admin=$admin;
     }
     
@@ -128,6 +133,34 @@ class Usuarios{
     public function setAdmin($admin)
     {
         $this->admin = $admin;
+
+        return $this;
+    }
+
+   
+    public function getCnh()
+    {
+        return $this->cnh;
+    }
+
+  
+    public function setCnh($cnh)
+    {
+        $this->cnh = $cnh;
+
+        return $this;
+    }
+
+   
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
+
+  
+    public function setEmpresa($empresa)
+    {
+        $this->empresa = $empresa;
 
         return $this;
     }
