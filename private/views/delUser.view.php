@@ -26,9 +26,9 @@ $result = $conn->pesquisaUsuario($id);
     <div class="img"></div>
     <div class="container">
         <header>Alterar dados do usuário</header>
-        <?php include('../controllers/mensagem.php'); ?>
+    
 
-        <form action="../controllers/editUser.php" method="post">
+        <form action="../controllers/deleteUser.php" method="post">
             <div class="form-first">
                 <div class="details personal">
                     <span class="title">Detalhes do Usuário</span>
@@ -83,7 +83,7 @@ $result = $conn->pesquisaUsuario($id);
                             <input type="radio" name="tipo" value="0" <?php echo($result['admin'] == '0') ? 'checked' : ''; ?> id="user">
                         </div>
                     </div>
-                    
+                    <input type="hidden" name="id_user" value="<?=$result['id_user']?>">
                         <div class="button">
                                 <a href="adminUser.view.php" class="btn-back">Voltar</a>
                             <button class="btn-send" type="submit" name="edit_user">

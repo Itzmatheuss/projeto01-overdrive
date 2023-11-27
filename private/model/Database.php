@@ -273,7 +273,37 @@ class Database{
     }
        
     
+    public function deletarUsuario($id)
+    {
+        $query = "DELETE FROM usuarios WHERE id_user = ?";
+        $array = array($id);
+        $query_run = $this->banco->prepare($query);
+        if($query_run->execute($array)){
+            $_SESSION['mensagem'] = "Usuário deletado com sucesso !";
+            header('Location: ../views/adminUser.view.php');
+            return true;
+        }else{
+            $_SERVER['mensagem']="Erro ao deletar usuário";
+            header('Location: ../views/adminUser.view.php');
+            return false;
+        }
+    }
 
+    public function deletarEmpresa($id)
+    {
+        $query = "DELETE FROM empresas WHERE id_empresa = ?";
+        $array = array($id);
+        $query_run = $this->banco->prepare($query);
+        if($query_run->execute($array)){
+            $_SESSION['mensagem'] = "Empresa deletada com sucesso !";
+            header('Location: ../views/adminEmpr.view.php');
+            return true;
+        }else{
+            $_SERVER['mensagem']="Erro ao deletar empresa";
+            header('Location: ../views/adminEmpr.view.php');
+            return false;
+        }
+    }
 
 
 }
