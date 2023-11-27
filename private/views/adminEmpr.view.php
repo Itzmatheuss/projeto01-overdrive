@@ -77,12 +77,12 @@ require_once('../model/Database.php');
                                                      <td>{$row['endereco']}</td>
                                                      <td>{$row['responsavel']}</td>
                                                      <td><div class='d-inline-block'>
-                                                     <a href='editEmpresa.view.php?id_empr={$row['id_empresa']}' class='mx-3' >
+                                                     <a href='editEmpresa.view.php?id_empresa={$row['id_empresa']}' class='mx-3' >
                                                          <span class='material-symbols-outlined'>
                                                          edit_note
                                                          </span>
                                                      </a></div>
-                                                        <a href='delEmpresa.view.php?id_empr={$row['id_empresa']}' >
+                                                        <a href='delEmpresa.view.php?id_empresa={$row['id_empresa']}' >
                                                             <span class='material-symbols-outlined'>
                                                             delete
                                                             </span>

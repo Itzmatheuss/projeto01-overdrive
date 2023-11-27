@@ -129,7 +129,7 @@ class Database{
         );
 
         } else {
-            header("Location: adminUser.view.php");
+            header("Location: ../adminUser.view.php");
             exit();
         }
     }
@@ -146,6 +146,7 @@ class Database{
         
         if($dados){
             return array(
+            'id_empresa' => $dados[0]['id_empresa'],
             'nome' => $dados[0]['nome'],
             'nome_fantasia' => $dados[0]['nome_fantasia'],
             'cnpj' => $dados[0]['cnpj'],
@@ -156,7 +157,7 @@ class Database{
 
         } else {
             // Redirecionar ou mostrar mensagem de usuário não encontrado
-            header("Location: adminEmpr.view.php");
+            header("Location: ../adminEmpr.view.php");
             exit();
         }
     }
@@ -240,6 +241,33 @@ class Database{
             return true;
         }else{
             $_SESSION['mensagem'] = "Falha ao alterar o usuário !";
+            return false;
+        }
+    }
+       
+    
+    public function alterEmpresa($empresa,$id)
+    {
+        $query = "UPDATE empresas SET nome = ?, nome_fantasia = ?, cnpj = ? , endereco = ? , telefone = ? , responsavel= ? WHERE id_empresa = ?";
+        
+        $query_run = $this->banco->prepare($query);
+    
+
+        $array=array(
+            $empresa->getNome(),
+            $empresa->getNome_fantasia(),
+            $empresa->getCnpj(),
+            $empresa->getEndereco(),
+            $empresa->getTelefone(),
+            $empresa->getResponsavel(),
+            $id
+        );
+
+        if($query_run->execute($array)){
+            $_SESSION['mensagem'] = "Empresa alterada com sucesso !";
+            return true;
+        }else{
+            $_SESSION['mensagem'] = "Falha ao alterar a empresa !";
             return false;
         }
     }

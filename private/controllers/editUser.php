@@ -28,7 +28,7 @@ if($senha!= null){
 
 if($conn->alterUser($usuario,$id)){
     header("Location: ../views/adminUser.view.php");
-    $_SESSION['mensagem']="Usuário alterado com sucesso !.";
+    $_SESSION['mensagem']="Usuário alterado com sucesso !";
 }else{
     header("Location: ../views/adminUser.view.php");
     $_SESSION['mensagem']="Falha no cadastro ! Tente novamente.";

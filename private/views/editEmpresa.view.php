@@ -2,9 +2,10 @@
 require_once('../model/Database.php');
 
 $conn = new Database;
-$id = $_GET['id_empr'];
+$id = $_GET['id_empresa'];
 
 $result = $conn->pesquisaEmpresa($id);
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +62,8 @@ $result = $conn->pesquisaEmpresa($id);
                         </div>
                     </div>
                     
-                        <div class="button">
+                    <input type="hidden" name="id_empresa" value="<?=$result['id_empresa']?>">
+                    <div class="button">
                             <a href="adminEmpr.view.php" class="btn-back" >Voltar</a>
                             <button class="btn-send" type="submit" name="edit_empresa">
                                 <span class="btnText">Alterar</span>

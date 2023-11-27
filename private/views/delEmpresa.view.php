@@ -1,8 +1,9 @@
 <?php
 require_once('../model/Database.php');
 
+
 $conn = new Database;
-$id = $_GET['id_empr'];
+$id = $_GET['id_empresa'];
 $result = $conn->pesquisaEmpresa($id);
 
 ?>
@@ -23,6 +24,9 @@ $result = $conn->pesquisaEmpresa($id);
     <div class="img"></div>
     <div class="container">
         <header>Alterar dados da Empresa</header>
+        <?php include_once('../controllers/mensagem.php'); 
+       
+        ?>
 
         <form action="../controllers/editEmpresa.php" method="post">
             <div class="form-first">

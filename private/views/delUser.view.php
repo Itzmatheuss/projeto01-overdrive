@@ -26,6 +26,7 @@ $result = $conn->pesquisaUsuario($id);
     <div class="img"></div>
     <div class="container">
         <header>Alterar dados do usuário</header>
+        <?php include('../controllers/mensagem.php'); ?>
 
         <form action="../controllers/editUser.php" method="post">
             <div class="form-first">
