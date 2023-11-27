@@ -31,16 +31,16 @@ require_once('../model/Database.php');
         <div class="box-search">
             <input type="search" class="form-control w-25" placeholder="Pesquisar Nome" id="search" name="search">
             <button class="btn btn-primary ">
-            <span class="material-symbols-outlined mt-1">
-                search
-            </span>
+                <span class="material-symbols-outlined mt-1">
+                    search
+                </span>
             </button>
         </div>
     </form>
-
+    
     <div class="container mt-4">
-        <!-- <?php include('mensagem.php');?> -->
         <div class="row">
+            <?php include('../controllers/mensagem.php'); ?>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-custom">

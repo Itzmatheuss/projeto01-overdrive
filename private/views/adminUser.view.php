@@ -18,6 +18,7 @@ require_once('../model/Database.php');
 </head>
 <body>
     <nav class="navbar bg-custom">
+    
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Olá <?= $_SESSION['user'] ?> </span>
             <a href="../controllers/sair.php" class="btn btn-danger float-end"> Sair</a>
@@ -37,8 +38,9 @@ require_once('../model/Database.php');
     </form>
 
     <div class="container mt-4">
-        <!-- <?php include('mensagem.php');?> -->
+        
         <div class="row">
+            <?php include('../controllers/mensagem.php'); ?>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-custom">

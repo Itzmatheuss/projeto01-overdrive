@@ -13,6 +13,7 @@
 </head>
 <body>
     <div class="img"></div>
+    <?php include('../private/controllers/mensagem.php'); ?>
     <main class="container">
         <div class="logo">
             <img src="images/ten13.png" alt="">

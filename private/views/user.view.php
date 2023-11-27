@@ -37,6 +37,7 @@ require_once('../model/Database.php');
     </form>
 
     <div class="container mt-4">
+        <?php include('../controllers/mensagem.php'); ?>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">

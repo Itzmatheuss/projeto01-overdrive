@@ -1,6 +1,7 @@
 <?php
 
 require_once('../controllers/autenticacao.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +19,7 @@ require_once('../controllers/autenticacao.php');
     <div class="img"></div>
     <div class="container">
         <header>Cadastro de Empresa</header>
+        <?php include('../controllers/mensagem.php'); ?>
 
         <form action="../controllers/saveEmpresa.php" method="POST" >
             <div class="form-first">

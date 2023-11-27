@@ -1,6 +1,7 @@
 <?php
 
 require_once('../controllers/autenticacao.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +18,7 @@ require_once('../controllers/autenticacao.php');
 <body>
     <div class="img"></div>
     <div class="container">
+        <?php include('../controllers/mensagem.php'); ?>
         <header>Cadastro de Usuário</header>
 
         <form action="../controllers/saveUser.php" method="POST">

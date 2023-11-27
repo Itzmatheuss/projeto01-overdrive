@@ -32,8 +32,7 @@ class Database{
         $consulta->execute();
         $usuario = $consulta->fetchAll(PDO::FETCH_ASSOC);
         print_r($usuario);
-        // password_verify($senha,$usuario[0]['senha'])
-        // $senha== ($usuario[0]['senha'])
+
         if($usuario){
             if(password_verify($senha,$usuario[0]['senha'])){
                 if($usuario[0]['admin'] == 1){
@@ -47,13 +46,14 @@ class Database{
                 }
             } else {
                 // Senha incorreta, redirecione de volta com uma mensagem de erro
-                $_SESSION['mensagem'] = "Senha incorreta ! Tente novamente.";
+                $_SESSION['mensagem']="Senha incorreta ! Tente novamente.";
+                header('Location:'.ROOT. '/public/index.php');
                 exit();
             }
         } else {
-            print_r($usuario);
             // Usuário não encontrado, redirecione de volta com uma mensagem de erro
-            $_SESSION['mensagem'] = "Usuário não encontrado ! Tente novamente.";
+            $_SESSION['mensagem']="Usuário não encontrado ! Tente novamente.";
+            header('Location:'.ROOT. '/public/index.php');
             exit();
         }
     }
@@ -129,7 +129,6 @@ class Database{
         );
 
         } else {
-        // Redirecionar ou mostrar mensagem de usuário não encontrado
             header("Location: adminUser.view.php");
             exit();
         }
@@ -180,12 +179,15 @@ class Database{
         );
     
         $query_run = $this->banco->prepare($query);
+        
     
         if ($query_run->execute($dados)) {
+            $_SESSION['mensagem'] = "Usuário cadastrado com sucesso !";
             return true;
+        }else{
+            $_SESSION['mensagem'] = "Falha no cadastro !";
+            return false;
         }
-    
-        return false;
     }
 
     public function cadastraEmpresa($empresa)
@@ -202,36 +204,44 @@ class Database{
 
         $query_run = $this->banco->prepare($query);
         
-        if($query_run->execute($dados))
+        if($query_run->execute($dados)){
+            $_SESSION['mensagem'] = "Usuário cadastrado com sucesso !";
             return true;
+        }else{
+        $_SESSION['mensagem'] = "Falha no cadastro !";
         return false;
-
+        }
+    
         
     }
 
     public function alterUser($usuario,$id)
     {
-        $query = "UPDATE usuarios SET nome = :nome, cpf = :cpf, senha = :senha, cnh = :cnh, telefone = :telefone, endereco = :endereco, carro = :carro, empresa = :empresa, admin = :admin WHERE id_user = :id";
+        $query = "UPDATE usuarios SET nome = ?, cpf = ?, senha = ? , cnh = ? , telefone = ? , endereco= ? , carro = ?, empresa = ?, admin = ? WHERE id_user = ?";
+        
+        $query_run = $this->banco->prepare($query);
+    
 
-
-        $query_run= $this->banco->prepare($query);
-        $query_run->bindParam(':id',$id);
-
-        $dados = array(
-            $_POST['nome'],
-            $_POST['cpf'],
-            $_POST['senha'],
-            $_POST['cnh'],
-            $_POST['telefone'],
-            $_POST['endereco'],
-            $_POST['carro'],
-            $_POST['empresa'],
-          
+        $array=array(
+            $usuario->getNome(),
+            $usuario->getCpf(),
+            $usuario->getSenha(),
+            $usuario->getCnh(),
+            $usuario->getTelefone(),
+            $usuario->getEndereco(),
+            $usuario->getCarro(),
+            $usuario->getEmpresa(),
+            $usuario->getAdmin(),
+            $id
         );
 
-        if($query_run->execute($dados))
+        if($query_run->execute($array)){
+            $_SESSION['mensagem'] = "Usuário alterado com sucesso !";
             return true;
-        return false;
+        }else{
+            $_SESSION['mensagem'] = "Falha ao alterar o usuário !";
+            return false;
+        }
     }
        
     
