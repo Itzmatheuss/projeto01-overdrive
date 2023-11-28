@@ -97,6 +97,19 @@ form .fields .input-field{
     height: 42px;
     margin: 8px 0;
 }
+form .input-field select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px;
+    width: 188px;
+}
+
 
 .input-field input:is(:focus, :valid){
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);

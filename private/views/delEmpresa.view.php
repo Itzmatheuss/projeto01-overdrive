@@ -28,7 +28,7 @@ $result = $conn->pesquisaEmpresa($id);
        
         ?>
 
-        <form action="../controllers/editEmpresa.php" method="post">
+        <form action="../controllers/deleteEmpresa.php" method="post">
             <div class="form-first">
                 <div class="details personal">
                     <span class="title">Detalhes da Empresa</span>
@@ -64,7 +64,7 @@ $result = $conn->pesquisaEmpresa($id);
                             <input type="text" placeholder="Responsável" id="responsavel" value="<?=$result['responsavel']?>">
                         </div>
                     </div>
-                    
+                    <input type="hidden" name="id_empresa" value="<?=$result['id_empresa']?>">
                         <div class="button">
                             <a href="adminEmpr.view.php" class="btn-back" >Voltar</a>
                             <button class="btn-send" type="submit" name="edit_empresa">

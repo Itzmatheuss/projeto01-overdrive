@@ -12,9 +12,9 @@ class Usuario{
     public $empresa;
     public $carro;
     public $admin;
-    
+    public $fkempresa;
 
-    public function __construct($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin)
+    public function __construct($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa)
     {
         $this->nome=$nome;
         $this->cpf=$cpf;
@@ -25,6 +25,7 @@ class Usuario{
         $this->carro=$carro;
         $this->empresa=$empresa;
         $this->admin=$admin;
+        $this->fkempresa=$fkempresa;
     }
     
 
@@ -161,6 +162,19 @@ class Usuario{
     public function setEmpresa($empresa)
     {
         $this->empresa = $empresa;
+
+        return $this;
+    }
+
+    public function getFkempresa()
+    {
+        return $this->fkempresa;
+    }
+
+ 
+    public function setFkempresa($fkempresa)
+    {
+        $this->fkempresa = $fkempresa;
 
         return $this;
     }

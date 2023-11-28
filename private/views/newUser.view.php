@@ -1,6 +1,12 @@
 <?php
 
 require_once('../controllers/autenticacao.php');
+require_once('../model/Database.php');
+
+$conn = new Database;
+
+$result = $conn->viewEmpresas();
+
 
 ?>
 <!DOCTYPE html>
@@ -63,8 +69,17 @@ require_once('../controllers/autenticacao.php');
                         </div>
 
                         <div class="input-field">
-                            <label for="empresa">Empresa</label>
-                            <input type="text" placeholder="Empresa" id="empresa" name="empresa" required>
+                            <label for="fkempresa">Empresa</label>
+                            <select name="fkempresa" id="fkempresa" required>
+                                <?php 
+                                    foreach($result as $row){
+                                        echo "
+                                        <option value='{$row['id_empresa']}'>{$row['nome_fantasia']}</option>
+                                        ";
+                                    }
+                                ?>
+                            </select>
+                            <!-- <input type="text" placeholder="Empresa" id="empresa" name="empresa" required> -->
                         </div>
 
                         <div class="input-field-type">

@@ -156,17 +156,48 @@ class Database{
         );
 
         } else {
-            // Redirecionar ou mostrar mensagem de usuário não encontrado
             header("Location: ../adminEmpr.view.php");
             exit();
         }
     }
+
+    public function pesquisaFkEmpresa($id)
+    {
+        $query = "SELECT * FROM empresas WHERE id_empresa = :id";
+
+        $query_run = $this->banco->prepare($query);
+        $query_run->bindParam(':id',$id);
+        $query_run->execute();
+
+        $dados=$query_run->fetchAll(PDO::FETCH_ASSOC);
+        
+        if($dados){
+            return array(
+            'id_empresa' => $dados[0]['id_empresa'],
+            'nome' => $dados[0]['nome'],
+            'nome_fantasia' => $dados[0]['nome_fantasia'],
+            'cnpj' => $dados[0]['cnpj'],
+            'endereco' => $dados[0]['endereco'],
+            'telefone' => $dados[0]['telefone'],
+            'responsavel' => $dados[0]['responsavel']
+        );
+
+        } else {
+            return null;
+            exit();
+        }
+    }
+
+
+
+
     
     
     public function cadastraUsuario($usuario)
     {
-        $query = "INSERT INTO usuarios (nome, cpf, senha, cnh, telefone, endereco, carro, empresa, admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    
+        $query = "INSERT INTO usuarios (nome, cpf, senha, cnh, telefone, endereco, carro, empresa, admin,fkempresa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+     
+        
         $dados = array(
             $usuario->getNome(),
             $usuario->getCpf(),
@@ -176,21 +207,22 @@ class Database{
             $usuario->getEndereco(),
             $usuario->getCarro(),
             $usuario->getEmpresa(),
-            $usuario->getAdmin()
+            $usuario->getAdmin(),
+            $usuario->getFkempresa()
         );
-    
+        print_r($dados);
         $query_run = $this->banco->prepare($query);
         
-    
         if ($query_run->execute($dados)) {
             $_SESSION['mensagem'] = "Usuário cadastrado com sucesso !";
             return true;
         }else{
             $_SESSION['mensagem'] = "Falha no cadastro !";
             return false;
+            }
         }
-    }
 
+    
     public function cadastraEmpresa($empresa)
     {
         $query = "INSERT INTO empresas (nome,nome_fantasia,cnpj,endereco,telefone,responsavel) VALUES (?,?,?,?,?,?) ";
@@ -206,7 +238,7 @@ class Database{
         $query_run = $this->banco->prepare($query);
         
         if($query_run->execute($dados)){
-            $_SESSION['mensagem'] = "Usuário cadastrado com sucesso !";
+            $_SESSION['mensagem'] = "Empresa cadastrada com sucesso !";
             return true;
         }else{
         $_SESSION['mensagem'] = "Falha no cadastro !";

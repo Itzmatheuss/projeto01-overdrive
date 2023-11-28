@@ -10,16 +10,28 @@ $cnh=$_POST["cnh"];
 $telefone=$_POST["telefone"];
 $endereco=$_POST["endereco"];
 $carro=$_POST["carro"];
-$empresa=$_POST["empresa"];
 $admin=$_POST["tipo"];
+$fkempresa = $_POST['fkempresa'];
 
-$usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin);
-print_r($usuario);
-$conn = new Database;
+$conn= new Database;
+$empresa_dados = $conn->pesquisaFkEmpresa($fkempresa);
+$empresa = $empresa_dados['nome'];
 
-if($conn->cadastraUsuario($usuario)){
-    header("Location: ../views/adminUser.view.php");
-}else{
-    
-    header("Location: error404.php");
+$usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
+
+
+
+try{
+    if($conn->cadastraUsuario($usuario)){
+        header("Location: ../views/adminUser.view.php");
+        exit();
+    }else{
+        header("Location: error404.php");
+        exit();
+    }
+}
+
+catch(PDOException $e){
+    echo "Erro: " .$e->getMessage();
+    exit();
 }
