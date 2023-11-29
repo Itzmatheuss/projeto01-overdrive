@@ -190,12 +190,10 @@ class Database{
     }
 
 
-
-
-    
     
     public function cadastraUsuario($usuario)
     {
+        
         $query = "INSERT INTO usuarios (nome, cpf, senha, cnh, telefone, endereco, carro, empresa, admin,fkempresa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
      
         

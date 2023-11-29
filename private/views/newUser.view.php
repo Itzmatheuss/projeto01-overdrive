@@ -24,7 +24,7 @@ $result = $conn->viewEmpresas();
 <body>
     <div class="img"></div>
     <div class="container">
-        <?php include('../controllers/mensagem.php'); ?>
+        <?php include('../controllers/mensagem_form.php'); ?>
         <header>Cadastro de Usuário</header>
 
         <form action="../controllers/saveUser.php" method="POST">
@@ -35,7 +35,7 @@ $result = $conn->viewEmpresas();
                     <div class="fields">
                         <div class="input-field">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" placeholder="Nome" id="nome" name="nome" required>
+                            <input type="text" placeholder="Nome" id="nome" name="nome" maxlength="25" required>
                         </div>
 
                         <div class="input-field">
@@ -45,7 +45,7 @@ $result = $conn->viewEmpresas();
 
                         <div class="input-field">
                             <label for="senha">Senha</label>
-                            <input type="password" placeholder="Escolha sua senha" name="senha" id="senha" required>
+                            <input type="password" placeholder="Escolha sua senha" name="senha" id="senha" maxlength="25" required>
                         </div>
 
                         <div class="input-field">
@@ -60,12 +60,12 @@ $result = $conn->viewEmpresas();
 
                         <div class="input-field">
                             <label for="endereco">Endereço</label>
-                            <input type="text" placeholder="Endereço" id="endereco" name="endereco" required>
+                            <input type="text" placeholder="Endereço" id="endereco" maxlength="25" name="endereco" required>
                         </div>
 
                         <div class="input-field">
                             <label for="carro">Carro</label>
-                            <input type="text" placeholder="Carro" id="carro" name="carro" required>
+                            <input type="text" placeholder="Carro" id="carro" maxlength="15" name="carro" required>
                         </div>
 
                         <div class="input-field">

@@ -13,7 +13,7 @@ $result = $conn->pesquisaEmpresa($id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Empresa</title>
+    <title>Deletar Empresa</title>
     <link rel="shortcut icon" href="ecology.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/delUserstyle.css">
     <link rel="stylesheet" href="../css/box.css">
@@ -25,7 +25,7 @@ $result = $conn->pesquisaEmpresa($id);
 <body>
     <div class="img"></div>
     <div class="container">
-        <header>Alterar dados da Empresa</header>
+        <header>Deletar Empresa</header>
         <?php include_once('../controllers/mensagem.php'); 
        
         ?>

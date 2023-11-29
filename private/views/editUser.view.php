@@ -38,7 +38,7 @@ $emp = $conn->viewEmpresas();
                     <div class="fields">
                         <div class="input-field">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" placeholder="Alterar Nome" id="nome" value="<?= $result['nome'] ?>" name="nome">
+                            <input type="text" placeholder="Alterar Nome" id="nome" value="<?= $result['nome'] ?>" name="nome" maxlength="25">
                         </div>
 
                         <div class="input-field">
@@ -48,7 +48,7 @@ $emp = $conn->viewEmpresas();
 
                         <div class="input-field">
                             <label for="senha">Senha</label>
-                            <input type="password" placeholder="Alterar Senha" id="senha" name="senha">
+                            <input type="password" placeholder="Alterar Senha" id="senha" name="senha" maxlength="25">
                         </div>
 
                         <div class="input-field">
@@ -63,12 +63,12 @@ $emp = $conn->viewEmpresas();
 
                         <div class="input-field">
                             <label for="endereco">Endereço</label>
-                            <input type="text" placeholder="Alterar Endereço" id="endereco" value="<?= $result['endereco'] ?>" name="endereco">
+                            <input type="text" placeholder="Alterar Endereço" id="endereco" value="<?= $result['endereco'] ?>" name="endereco" maxlength="25">
                         </div>
 
                         <div class="input-field">
                             <label for="carro">Carro</label>
-                            <input type="text" placeholder="Alterar Carro" id="carro" value="<?= $result['carro'] ?>" name="carro">
+                            <input type="text" placeholder="Alterar Carro" id="carro" value="<?= $result['carro'] ?>" name="carro" maxlength="15">
                         </div>
 
                         <div class="input-field">

@@ -14,10 +14,21 @@ $responsavel=$_POST["responsavel"];
 
 $conn = new Database;
 $empresa = new Empresa($nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsavel);
-if($conn->alterEmpresa($empresa,$id)){
-    header("Location: ../views/adminEmpr.view.php");
-    $_SESSION['mensagem']="Empresa alterada com sucesso !";
-}else{
-    header("Location: ../views/adminEmpr.view.php");
-    $_SESSION['mensagem']="Falha ao alterar Empresa ! Tente novamente.";
+
+try {
+    
+    if($conn->alterEmpresa($empresa,$id)){
+        header("Location: ../views/adminEmpr.view.php");
+        $_SESSION['mensagem']="Empresa alterada com sucesso !";
+    }else{
+        header("Location: ../views/adminEmpr.view.php");
+        $_SESSION['mensagem']="Falha ao alterar Empresa ! Tente novamente.";
+    }
+
+} 
+
+catch(PDOException $e){
+    echo "Erro: " .$e->getMessage();
+    exit();
 }
+

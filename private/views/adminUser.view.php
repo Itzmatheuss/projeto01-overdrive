@@ -43,13 +43,13 @@ require_once('../model/Database.php');
             <?php include('../controllers/mensagem.php'); ?>
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header bg-custom">
+                    <div class="card-header bg-custom" >
                         <h4>Usuários Cadastrados
                             <a href="adminEmpr.view.php" class="btn btn-info float-end mx-3">Ver Empresas</a>
                             <a href="newUser.view.php" class="btn btn-info float-end ">Cadastrar Usuário</a>
                         </h4>    
                     </div>
-                    <div class="card-body bg-custom">
+                    <div class="card-body bg-custom" id="media">
                         <table class="table table-bordered table-striped table-hover bg-custom align-center text-capitalize">
                             <thead>
                                 <tr>
@@ -61,7 +61,7 @@ require_once('../model/Database.php');
                                     <th>Endereço</th>
                                     <th>Carro</th>
                                     <th>Empresa</th>
-                                    <th>Editar / Deletar</th>
+                                    <th>Editar/Deletar</th>
                                 </tr>
                             </thead>
                             <tbody class="table-group-divider">
@@ -70,26 +70,25 @@ require_once('../model/Database.php');
                                     $result = $conn->viewUsuarios();
                                     foreach($result as $row){
                                         echo "<tr>
-                                                <td>{$row['id_user']}</td>
-                                                <td>{$row['nome']}</td>
-                                                <td>{$row['cpf']}</td>
-                                                <td>{$row['cnh']}</td>
-                                                <td>{$row['telefone']}</td>
-                                                <td>{$row['endereco']}</td>
-                                                <td>{$row['carro']}</td>
-                                                <td>{$row['empresa']}</td>
-                                                <td><div class='d-inline-block'>
-                                                    <a href='editUser.view.php?id_user={$row['id_user']}' class='mx-3' >
-                                                        <span class='material-symbols-outlined'>
-                                                        edit_note
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                                <a href='delUser.view.php?id_user={$row['id_user']}' >
+                                                <td data-title='Id' >{$row['id_user']}</td>
+                                                <td data-title='Nome:' >{$row['nome']}</td>
+                                                <td data-title='Cpf:' >{$row['cpf']}</td>
+                                                <td data-title='Cnh:' >{$row['cnh']}</td>
+                                                <td data-title='Telefone' >{$row['telefone']}</td>
+                                                <td data-title='Endereço:' >{$row['endereco']}</td>
+                                                <td data-title='Carro:' >{$row['carro']}</td>
+                                                <td data-title='Empresa:' >{$row['empresa']}</td>
+                                                <td data-title='Editar/Deletar:'><div class='d-inline-block'>
+                                                <a href='editUser.view.php?id_user={$row['id_user']}' class='mx-3' >
                                                     <span class='material-symbols-outlined'>
-                                                    delete
+                                                    edit_note
                                                     </span>
-                                                </a>
+                                                </a></div>
+                                                   <a href='deluser.view.php?id_user={$row['id_user']}' >
+                                                       <span class='material-symbols-outlined'>
+                                                       delete
+                                                       </span>
+                                                   </a>
                                             </tr>";
                                     }
                                 ?>

@@ -16,21 +16,31 @@ $admin=$_POST["tipo"];
 
 $conn= new Database;
 $empresa_dados = $conn->pesquisaFkEmpresa($fkempresa);
-$empresa = $empresa_dados['nome'];
+$empresa = $empresa_dados['nome_fantasia'];
 
-if($senha!= null){
-    $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
-    }else{
-        
-        $result = $conn->pesquisaUsuario($id);
-        $senha = $result['senha'];
+
+try{
+    
+    if($senha!= null){
         $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
+        }else{
+            
+            $result = $conn->pesquisaUsuario($id);
+            $senha = $result['senha'];
+            $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
+        }
+    
+    if($conn->alterUser($usuario,$id)){
+        header("Location: ../views/adminUser.view.php");
+        $_SESSION['mensagem']="Usuário alterado com sucesso !";
+    }else{
+        header("Location: ../views/adminUser.view.php");
+        $_SESSION['mensagem']="Falha no cadastro ! Tente novamente.";
     }
 
-if($conn->alterUser($usuario,$id)){
-    header("Location: ../views/adminUser.view.php");
-    $_SESSION['mensagem']="Usuário alterado com sucesso !";
-}else{
-    header("Location: ../views/adminUser.view.php");
-    $_SESSION['mensagem']="Falha no cadastro ! Tente novamente.";
+}
+
+catch(PDOException $e){
+    echo "Erro: " .$e->getMessage();
+    exit();
 }

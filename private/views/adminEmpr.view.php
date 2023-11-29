@@ -49,8 +49,8 @@ require_once('../model/Database.php');
                          <a href="newEmpresa.view.php" class="btn btn-info float-end">Cadastrar Empresa</a>
                         </h4>    
                     </div>
-                    <div class="card-body bg-custom">
-                        <table class="table table-bordered table-striped">
+                    <div class="card-body bg-custom" id="media">
+                        <table class="table table-bordered table-striped text-center">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -69,14 +69,14 @@ require_once('../model/Database.php');
                                      $result = $conn->viewEmpresas();
                                          foreach($result as $row){
                                              echo "<tr>
-                                                     <td>{$row['id_empresa']}</td>
-                                                     <td>{$row['nome']}</td>
-                                                     <td>{$row['nome_fantasia']}</td>
-                                                     <td>{$row['cnpj']}</td>
-                                                     <td>{$row['telefone']}</td>
-                                                     <td>{$row['endereco']}</td>
-                                                     <td>{$row['responsavel']}</td>
-                                                     <td><div class='d-inline-block'>
+                                                     <td data-title='Id' >{$row['id_empresa']}</td>
+                                                     <td data-title='Nome' >{$row['nome']}</td>
+                                                     <td data-title='Nome Fantasia' >{$row['nome_fantasia']}</td>
+                                                     <td data-title='Cnpj' >{$row['cnpj']}</td>
+                                                     <td data-title='Telefone' >{$row['telefone']}</td>
+                                                     <td data-title='Endereco' >{$row['endereco']}</td>
+                                                     <td data-title='Responsavel' >{$row['responsavel']}</td>
+                                                     <td data-title='Editar/Deletar' ><div class='d-inline-block'>
                                                      <a href='editEmpresa.view.php?id_empresa={$row['id_empresa']}' class='mx-3' >
                                                          <span class='material-symbols-outlined'>
                                                          edit_note

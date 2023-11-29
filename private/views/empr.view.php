@@ -46,7 +46,7 @@ require_once('../controllers/autenticacao.php');
                          <a href="user.view.php" class="btn btn-info float-end">Ver Usuários</a>
                         </h4>    
                     </div>
-                    <div class="card-body bg-custom">
+                    <div class="card-body bg-custom" id="media-user">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -65,13 +65,13 @@ require_once('../controllers/autenticacao.php');
                                 $result = $conn->viewEmpresas();
                                     foreach($result as $row){
                                         echo "<tr>
-                                                <td>{$row['id_empresa']}</td>
-                                                <td>{$row['nome']}</td>
-                                                <td>{$row['nome_fantasia']}</td>
-                                                <td>{$row['cnpj']}</td>
-                                                <td>{$row['telefone']}</td>
-                                                <td>{$row['endereco']}</td>
-                                                <td>{$row['responsavel']}</td>
+                                                <td data-title='Id' >{$row['id_empresa']}</td>
+                                                <td data-title='Nome' >{$row['nome']}</td>
+                                                <td data-title='Nome Fantasia' >{$row['nome_fantasia']}</td>
+                                                <td data-title='Cnpj' >{$row['cnpj']}</td>
+                                                <td data-title='Telefone' >{$row['telefone']}</td>
+                                                <td data-title='Endereco' >{$row['endereco']}</td>
+                                                <td data-title='Responsavel' >{$row['responsavel']}</td>
                                             </tr>";
                                     }
                                 ?>

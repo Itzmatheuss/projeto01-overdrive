@@ -15,7 +15,7 @@ $result = $conn->pesquisaUsuario($id);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alterar Usuário</title>
+    <title>Deletar Usuário</title>
     <link rel="shortcut icon" href="ecology.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/delUserstyle.css">
     <script src="../bootstrap/js/jquery-3.7.1.min.js"></script>
@@ -25,7 +25,7 @@ $result = $conn->pesquisaUsuario($id);
 <body>
     <div class="img"></div>
     <div class="container">
-        <header>Alterar dados do usuário</header>
+        <header>Deletar Usuário</header>
     
 
         <form action="../controllers/deleteUser.php" method="post">
@@ -46,7 +46,7 @@ $result = $conn->pesquisaUsuario($id);
 
                         <div class="input-field">
                             <label for="senha">Senha</label>
-                            <input type="password" placeholder="Escolha sua senha" id="senha" value="<?=$result['senha']?>">
+                            <input type="password" placeholder="Escolha sua senha" id="senha">
                         </div>
 
                         <div class="input-field">

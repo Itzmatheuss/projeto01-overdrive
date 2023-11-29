@@ -15,7 +15,7 @@ $fkempresa = $_POST['fkempresa'];
 
 $conn= new Database;
 $empresa_dados = $conn->pesquisaFkEmpresa($fkempresa);
-$empresa = $empresa_dados['nome'];
+$empresa = $empresa_dados['nome_fantasia'];
 
 $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
 

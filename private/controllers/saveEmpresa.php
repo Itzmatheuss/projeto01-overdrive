@@ -15,9 +15,16 @@ $empresa = new Empresa($nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsav
 print_r($empresa);
 $conn = new Database;
 
-if($conn->cadastraEmpresa($empresa)){
-    header("Location: ../views/adminEmpr.view.php");
-}else{
-    
-    header("Location: error404.php");
+try{
+    if($conn->cadastraEmpresa($empresa)){
+        header("Location: ../views/adminEmpr.view.php");
+    }else{
+        
+        header("Location: error404.php");
+    }
+}
+
+catch(PDOException $e){
+    echo "Erro: " .$e->getMessage();
+    exit();
 }

@@ -9,6 +9,52 @@
     font-size: 18px;
 }
 
+@media (max-width:1400px) {
+    #media tbody,
+    #media tr,
+    #media td{
+        display:block;
+    }
+    #media thead tr{
+        position: absolute;
+        top: -99999px;
+        left: -99999px;
+    }
+    #media td{
+        position: relative;
+        padding-left: 50%;
+    }
+    #media td::before{
+        content: attr(data-title);
+        position: absolute;
+        left: 6px;
+        font-weight: bold;
+    }
+
+}
+@media (max-width:1000px) {
+    #media-user tbody,
+    #media-user tr,
+    #media-user td{
+        display:block;
+    }
+    #media-user thead tr{
+        position: absolute;
+        top: -99999px;
+        left: -99999px;
+    }
+    #media-user td{
+        position: relative;
+        padding-left: 50%;
+    }
+    #media-user td::before{
+        content: attr(data-title);
+        position: absolute;
+        left: 6px;
+        font-weight: bold;
+    }
+
+}
 
 .img {
     position: absolute; /* Set position to absolute to position it relative to the body */

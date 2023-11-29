@@ -29,12 +29,12 @@ require_once('../controllers/autenticacao.php');
                     <div class="fields">
                         <div class="input-field">
                             <label for="nome">Nome da Empresa</label>
-                            <input type="text" placeholder="Nome" id="nome" name="nome" required>
+                            <input type="text" placeholder="Nome" id="nome" name="nome" maxlength="35" required>
                         </div>
 
                         <div class="input-field">
                             <label for="nome_fantasia">Nome Fantasia</label>
-                            <input type="text" placeholder="Nome Fantasia" id="nome_fantasia" name="nome_fantasia" required>
+                            <input type="text" placeholder="Nome Fantasia" id="nome_fantasia" maxlength="20" name="nome_fantasia" required>
                         </div>
 
                         <div class="input-field">
@@ -44,7 +44,7 @@ require_once('../controllers/autenticacao.php');
 
                         <div class="input-field">
                             <label for="endereco">Endereço</label>
-                            <input type="text" placeholder="Endereço" id="endereco" name="endereco" required>
+                            <input type="text" placeholder="Endereço" id="endereco" maxlength="30" name="endereco" required>
                         </div>
 
                         <div class="input-field">
@@ -54,7 +54,7 @@ require_once('../controllers/autenticacao.php');
 
                         <div class="input-field">
                             <label for="responsavel">Responsável</label>
-                            <input type="text" placeholder="Responsável" id="responsavel" name="responsavel" required>
+                            <input type="text" placeholder="Responsável" id="responsavel" maxlength="20" name="responsavel" required>
                         </div>
                     </div>
                     

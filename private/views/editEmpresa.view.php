@@ -33,12 +33,12 @@ $result = $conn->pesquisaEmpresa($id);
                     <div class="fields">
                         <div class="input-field">
                             <label for="nome">Nome da Empresa</label>
-                            <input type="text" placeholder="Nome" id="nome" value="<?=$result['nome']?>" name="nome">
+                            <input type="text" placeholder="Nome" id="nome" value="<?=$result['nome']?>" name="nome" maxlength="35">
                         </div>
 
                         <div class="input-field">
                             <label for="nome_fantasia">Nome Fantasia</label>
-                            <input type="text" placeholder="Nome Fantasia" id="nome_fantasia" value="<?=$result['nome_fantasia']?>" name="nome_fantasia">
+                            <input type="text" placeholder="Nome Fantasia" id="nome_fantasia" value="<?=$result['nome_fantasia']?>" name="nome_fantasia" maxlength="20">
                         </div>
 
                         <div class="input-field">
@@ -48,7 +48,7 @@ $result = $conn->pesquisaEmpresa($id);
 
                         <div class="input-field">
                             <label for="endereco">Endereço</label>
-                            <input type="text" placeholder="Endereço" id="endereco" value="<?=$result['endereco']?>" name="endereco">
+                            <input type="text" placeholder="Endereço" id="endereco" value="<?=$result['endereco']?>" name="endereco" maxlength="30">
                         </div>
 
                         <div class="input-field">
@@ -58,7 +58,7 @@ $result = $conn->pesquisaEmpresa($id);
 
                         <div class="input-field">
                             <label for="responsavel">Responsável</label>
-                            <input type="text" placeholder="Responsável" id="responsavel" value="<?=$result['responsavel']?>" name="responsavel">
+                            <input type="text" placeholder="Responsável" id="responsavel" value="<?=$result['responsavel']?>" name="responsavel" maxlength="20">
                         </div>
                     </div>
                     

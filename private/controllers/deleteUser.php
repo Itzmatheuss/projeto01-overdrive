@@ -7,4 +7,11 @@ $id = $_POST['id_user'];
 
 $conn = new Database;
 
-$delete = $conn->deletarUsuario($id);
+try{
+    $delete = $conn->deletarUsuario($id);
+
+}
+catch(PDOException $e){
+    echo "Erro: " .$e->getMessage();
+    exit();
+}
