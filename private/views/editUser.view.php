@@ -6,12 +6,14 @@ $conn = new Database;
 $id = $_GET['id_user'];
 
 $result = $conn->pesquisaUsuario($id);
+$emp = $conn->viewEmpresas();
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +24,7 @@ $result = $conn->pesquisaUsuario($id);
     <script src="../bootstrap/js/jquery.mask.min.js"></script>
     <script src="../bootstrap/js/mask.js"></script>
 </head>
+
 <body>
     <div class="img"></div>
     <div class="container">
@@ -35,12 +38,12 @@ $result = $conn->pesquisaUsuario($id);
                     <div class="fields">
                         <div class="input-field">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" placeholder="Alterar Nome" id="nome" value="<?=$result['nome']?>"name="nome">
+                            <input type="text" placeholder="Alterar Nome" id="nome" value="<?= $result['nome'] ?>" name="nome">
                         </div>
 
                         <div class="input-field">
                             <label for="cpf">CPF</label>
-                            <input type="text" placeholder="Alterar CPF" id="cpf" value="<?=$result['cpf']?>"name="cpf">
+                            <input type="text" placeholder="Alterar CPF" id="cpf" value="<?= $result['cpf'] ?>" name="cpf">
                         </div>
 
                         <div class="input-field">
@@ -50,48 +53,57 @@ $result = $conn->pesquisaUsuario($id);
 
                         <div class="input-field">
                             <label for="cnh">CNH</label>
-                            <input type="text" placeholder="Alterar CNH" id="cnh" value="<?=$result['cnh']?>"name="cnh">
+                            <input type="text" placeholder="Alterar CNH" id="cnh" value="<?= $result['cnh'] ?>" name="cnh">
                         </div>
 
                         <div class="input-field">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" placeholder="Alterar Telefone" id="telefone" value="<?=$result['telefone']?>"name="telefone">
+                            <input type="tel" placeholder="Alterar Telefone" id="telefone" value="<?= $result['telefone'] ?>" name="telefone">
                         </div>
 
                         <div class="input-field">
                             <label for="endereco">Endereço</label>
-                            <input type="text" placeholder="Alterar Endereço" id="endereco" value="<?=$result['endereco']?>"name="endereco">
+                            <input type="text" placeholder="Alterar Endereço" id="endereco" value="<?= $result['endereco'] ?>" name="endereco">
                         </div>
 
                         <div class="input-field">
                             <label for="carro">Carro</label>
-                            <input type="text" placeholder="Alterar Carro" id="carro" value="<?=$result['carro']?>"name="carro">
+                            <input type="text" placeholder="Alterar Carro" id="carro" value="<?= $result['carro'] ?>" name="carro">
                         </div>
 
                         <div class="input-field">
-                            <label for="empresa">Empresa</label>
-                            <input type="text" placeholder="Alterar Empresa" id="empresa" value="<?=$result['empresa']?>" name="empresa">
+                            <label for="fkempresa">Empresa</label>
+                            <select name="fkempresa" id="fkempresa" required>
+                                <?php
+
+                                foreach ($emp as $row) {
+                                    $selected = ($result['fkempresa'] == $row['id_empresa']) ? 'selected' : '';
+                                    echo "<option value='{$row['id_empresa']}' $selected>{$row['nome_fantasia']}</option>";
+                                }
+                                ?>
+                            </select>
                         </div>
 
                         <div class="input-field-type">
-                         
+
                             <div class="label"><label for="tipo">Tipo de Usuário</label></div>
                             <label for="admin">Adminstrador</label>
-                            <input type="radio" name="tipo" value="1" <?php echo($result['admin'] == '1') ? 'checked' : ''; ?> id="admin">
+                            <input type="radio" name="tipo" value="1" <?php echo ($result['admin'] == '1') ? 'checked' : ''; ?> id="admin">
                             <label for="user">Comum</label>
-                            <input type="radio" name="tipo" value="0" <?php echo($result['admin'] == '0') ? 'checked' : ''; ?> id="user">
+                            <input type="radio" name="tipo" value="0" <?php echo ($result['admin'] == '0') ? 'checked' : ''; ?> id="user">
                         </div>
                     </div>
-                        <input type="hidden" name="id_user" value="<?=$result['id_user']?>">
-                        <div class="button">
-                                <a href="adminUser.view.php" class="btn-back">Voltar</a>
-                            <button class="btn-send" type="submit" name="edit_user">
-                                <span class="btnText">Alterar</span>
-                            </button>
-                        </div>
+                    <input type="hidden" name="id_user" value="<?= $result['id_user'] ?>">
+                    <div class="button">
+                        <a href="adminUser.view.php" class="btn-back">Voltar</a>
+                        <button class="btn-send" type="submit" name="edit_user">
+                            <span class="btnText">Alterar</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
 </body>
+
 </html>

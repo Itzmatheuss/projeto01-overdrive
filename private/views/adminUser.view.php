@@ -50,7 +50,7 @@ require_once('../model/Database.php');
                         </h4>    
                     </div>
                     <div class="card-body bg-custom">
-                        <table class="table table-bordered table-striped bg-custom">
+                        <table class="table table-bordered table-striped table-hover bg-custom align-center text-capitalize">
                             <thead>
                                 <tr>
                                     <th>ID</th>
@@ -64,7 +64,7 @@ require_once('../model/Database.php');
                                     <th>Editar / Deletar</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="table-group-divider">
                                 <?php
                                     $conn = new Database;
                                     $result = $conn->viewUsuarios();

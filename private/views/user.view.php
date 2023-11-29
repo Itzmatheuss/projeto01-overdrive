@@ -38,7 +38,7 @@ require_once('../model/Database.php');
 
     <div class="container mt-4">
         <?php include('../controllers/mensagem.php'); ?>
-        <div class="row">
+        <div class="row table-primary">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-custom">

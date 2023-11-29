@@ -126,6 +126,7 @@ class Database{
             'carro' => $dados[0]['carro'],
             'empresa' => $dados[0]['empresa'],
             'admin' => $dados[0]['admin'],
+            'fkempresa' => $dados[0]['fkempresa']
         );
 
         } else {
@@ -250,7 +251,7 @@ class Database{
 
     public function alterUser($usuario,$id)
     {
-        $query = "UPDATE usuarios SET nome = ?, cpf = ?, senha = ? , cnh = ? , telefone = ? , endereco= ? , carro = ?, empresa = ?, admin = ? WHERE id_user = ?";
+        $query = "UPDATE usuarios SET nome = ?, cpf = ?, senha = ? , cnh = ? , telefone = ? , endereco= ? , carro = ?, empresa = ?, admin = ?, fkempresa = ? WHERE id_user = ?";
         
         $query_run = $this->banco->prepare($query);
     
@@ -265,7 +266,8 @@ class Database{
             $usuario->getCarro(),
             $usuario->getEmpresa(),
             $usuario->getAdmin(),
-            $id
+            $usuario->getFkempresa(),
+            $id,
         );
 
         if($query_run->execute($array)){

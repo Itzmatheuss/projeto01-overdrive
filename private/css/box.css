@@ -1,0 +1,51 @@
+#conf {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: rgba(27, 26, 26, 0.918);
+}
+
+.conf-content {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20% auto;
+    width: 30%;
+    text-align: center;
+    border-radius: 5px;
+}
+
+button {
+    font-size: 16px;
+    margin: 10px;
+    padding: 5px;
+}
+.cuidado{
+    color: #f44040;
+}
+
+#back{
+    background-color: #4070f4;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+   
+}
+#back:hover{
+    background-color: #265df2;
+}
+#send{
+    background-color: #f44040;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    color: #fff;
+}
+
+#send:hover{
+    background-color: #fd0000;
+}

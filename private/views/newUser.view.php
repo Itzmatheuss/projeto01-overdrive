@@ -79,7 +79,7 @@ $result = $conn->viewEmpresas();
                                     }
                                 ?>
                             </select>
-                            <!-- <input type="text" placeholder="Empresa" id="empresa" name="empresa" required> -->
+                    
                         </div>
 
                         <div class="input-field-type">

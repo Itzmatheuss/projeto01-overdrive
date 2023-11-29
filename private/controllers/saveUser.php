@@ -20,7 +20,6 @@ $empresa = $empresa_dados['nome'];
 $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
 
 
-
 try{
     if($conn->cadastraUsuario($usuario)){
         header("Location: ../views/adminUser.view.php");

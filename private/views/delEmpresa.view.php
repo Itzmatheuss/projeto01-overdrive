@@ -16,6 +16,8 @@ $result = $conn->pesquisaEmpresa($id);
     <title>Alterar Empresa</title>
     <link rel="shortcut icon" href="ecology.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/delUserstyle.css">
+    <link rel="stylesheet" href="../css/box.css">
+    <script src="../js/abrirConf.js"></script>
     <script src="../bootstrap/js/jquery-3.7.1.min.js"></script>
     <script src="../bootstrap/js/jquery.mask.min.js"></script>
     <script src="../bootstrap/js/mask.js"></script>
@@ -28,7 +30,7 @@ $result = $conn->pesquisaEmpresa($id);
        
         ?>
 
-        <form action="../controllers/deleteEmpresa.php" method="post">
+        <form id="deleteForm" action="../controllers/deleteEmpresa.php" method="post">
             <div class="form-first">
                 <div class="details personal">
                     <span class="title">Detalhes da Empresa</span>
@@ -67,9 +69,21 @@ $result = $conn->pesquisaEmpresa($id);
                     <input type="hidden" name="id_empresa" value="<?=$result['id_empresa']?>">
                         <div class="button">
                             <a href="adminEmpr.view.php" class="btn-back" >Voltar</a>
-                            <button class="btn-send" type="submit" name="edit_empresa">
+                            <button class="btn-send" type="button" onclick="abrirConf()" name="edit_empresa">
                                 <span class="btnText">DELETAR EMPRESA</span>
                             </button>
+                        </div>
+
+                        <div id="conf">
+                            <div class="conf-content">
+                                <strong class="cuidado">
+                                    <p>CUIDADO !!!</p>
+                                </strong>
+                                <p>Ao deletar a empresa todos os colaboradores serão deletados juntos.</p>
+                                <p>Tem certeza que deseja deletar esta empresa ?</p>
+                                <button type="button" onclick="fecharConf()" id="back">Cancelar</button>
+                                <button type="button" onclick="confirmarDelete()" id="send">Deletar</button>
+                            </div>
                         </div>
                 </div>
             </div>

@@ -4,7 +4,6 @@ require_once('../model/Database.php');
 require_once('../model/User.php');
 
 $id = $_POST['id_user'];
-
 $nome = $_POST["nome"];
 $cpf=$_POST["cpf"];
 $senha=($_POST["senha"] != null ) ? password_hash($_POST["senha"],PASSWORD_DEFAULT) : null;
@@ -12,18 +11,20 @@ $cnh=$_POST["cnh"];
 $telefone=$_POST["telefone"];
 $endereco=$_POST["endereco"];
 $carro=$_POST["carro"];
-$empresa=$_POST["empresa"];
+$fkempresa=$_POST["fkempresa"];
 $admin=$_POST["tipo"];
 
-$conn = new Database;
+$conn= new Database;
+$empresa_dados = $conn->pesquisaFkEmpresa($fkempresa);
+$empresa = $empresa_dados['nome'];
 
 if($senha!= null){
-    $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin);
+    $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
     }else{
         
         $result = $conn->pesquisaUsuario($id);
         $senha = $result['senha'];
-        $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin);
+        $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
     }
 
 if($conn->alterUser($usuario,$id)){
