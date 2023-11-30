@@ -11,16 +11,18 @@ $result = $conn->pesquisaUsuario($id);
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deletar Usuário</title>
     <link rel="shortcut icon" href="ecology.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/delUserstyle.css">
+    <link rel="stylesheet" href="../css/box.css">
     <script src="../bootstrap/js/jquery-3.7.1.min.js"></script>
     <script src="../bootstrap/js/jquery.mask.min.js"></script>
     <script src="../bootstrap/js/mask.js"></script>
+    <script src="../js/abrirConf.js"></script>
 </head>
 <body>
     <div class="img"></div>
@@ -28,7 +30,7 @@ $result = $conn->pesquisaUsuario($id);
         <header>Deletar Usuário</header>
     
 
-        <form action="../controllers/deleteUser.php" method="post">
+        <form id="deleteForm" action="../controllers/deleteUser.php" method="post">
             <div class="form-first">
                 <div class="details personal">
                     <span class="title">Detalhes do Usuário</span>
@@ -86,9 +88,20 @@ $result = $conn->pesquisaUsuario($id);
                     <input type="hidden" name="id_user" value="<?=$result['id_user']?>">
                         <div class="button">
                                 <a href="adminUser.view.php" class="btn-back">Voltar</a>
-                            <button class="btn-send" type="submit" name="edit_user">
+                            <button class="btn-send" type="button" onclick="abrirConf()" name="edit_user">
                                 <span class="btnText">DELETAR USUÁRIO</span>
                             </button>
+                        </div>
+
+                        <div id="conf">
+                            <div class="conf-content">
+                                <strong class="cuidado">
+                                    <p>CUIDADO !!!</p>
+                                </strong>
+                                <p>Tem certeza que deseja deletar este usuário ?</p>
+                                <button type="button" onclick="fecharConf()" id="back">Cancelar</button>
+                                <button type="button" onclick="confirmarDelete()" id="send">Deletar</button>
+                            </div>
                         </div>
                 </div>
             </div>

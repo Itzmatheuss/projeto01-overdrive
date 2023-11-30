@@ -10,7 +10,7 @@ $result = $conn->viewEmpresas();
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@ $result = $conn->viewEmpresas();
 <body>
     <div class="img"></div>
     <div class="container">
-        <?php include('../controllers/mensagem_form.php'); ?>
+        <?php include('../controllers/mensagem.php'); ?>
         <header>Cadastro de Usuário</header>
 
         <form action="../controllers/saveUser.php" method="POST">
@@ -35,7 +35,7 @@ $result = $conn->viewEmpresas();
                     <div class="fields">
                         <div class="input-field">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" placeholder="Nome" id="nome" name="nome" maxlength="25" required>
+                            <input type="text" placeholder="Nome" id="nome" name="nome" maxlength="35" required>
                         </div>
 
                         <div class="input-field">

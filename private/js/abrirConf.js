@@ -16,3 +16,4 @@ document.querySelector(".back").addEventListener("click"),function (event){
     fecharConf();
     return false;
 }
+
