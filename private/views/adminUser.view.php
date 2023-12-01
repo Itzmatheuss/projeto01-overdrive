@@ -41,6 +41,7 @@ require_once('../model/Database.php');
         
         <div class="row">
             <?php include('../controllers/mensagem.php'); ?>
+            <?php include('../controllers/mensagem_erro.php'); ?>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header bg-custom" >

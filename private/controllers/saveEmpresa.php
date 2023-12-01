@@ -10,9 +10,15 @@ $endereco=$_POST["endereco"];
 $telefone=$_POST["telefone"];
 $responsavel=$_POST["responsavel"];
 
+if( empty($nome) || empty($nome_fantasia)|| empty($cnpj)|| empty($endereco|| empty($telefone)||  empty($responsavel) )){
+    $_SESSION['mensagem_erro'] = "Falha no cadastro da empresa !";
+    header("Location: ../views/adminUser.view.php");
+    exit();
+}
 
 $empresa = new Empresa($nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsavel);
-print_r($empresa);
+
+
 $conn = new Database;
 
 try{
@@ -25,6 +31,7 @@ try{
 }
 
 catch(PDOException $e){
-    echo "Erro: " .$e->getMessage();
+    $_SESSION['mensagem_erro'] = "Erro: " . $e->getMessage();
+    header("Location: error404.php");
     exit();
 }

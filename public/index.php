@@ -14,6 +14,8 @@
 <body>
     <div class="img"></div>
     <?php include('../private/controllers/mensagem.php'); ?>
+    <?php include('../private/controllers/mensagem_erro.php'); ?>
+
     <main class="container">
         <div class="logo">
             <img src="images/ten13.png" alt="">

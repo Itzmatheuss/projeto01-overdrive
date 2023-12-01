@@ -43,13 +43,13 @@ class Database{
                 }
             } else {
                 // Senha incorreta, redirecione de volta com uma mensagem de erro
-                $_SESSION['mensagem']="Senha incorreta ! Tente novamente.";
+                $_SESSION['mensagem_erro']="Senha incorreta ! Tente novamente.";
                 header('Location:'.ROOT. '/public/index.php');
                 exit();
             }
         } else {
             // Usuário não encontrado, redirecione de volta com uma mensagem de erro
-            $_SESSION['mensagem']="Usuário não encontrado ! Tente novamente.";
+            $_SESSION['mensagem_erro']="Usuário não encontrado ! Tente novamente.";
             header('Location:'.ROOT. '/public/index.php');
             exit();
         }
@@ -209,7 +209,7 @@ class Database{
             $_SESSION['mensagem'] = "Usuário cadastrado com sucesso !";
             return true;
         }else{
-            $_SESSION['mensagem'] = "Falha no cadastro !";
+            $_SESSION['mensagem_erro'] = "Falha no cadastro do usuário!";
             return false;
             }
         }
@@ -232,7 +232,7 @@ class Database{
             $_SESSION['mensagem'] = "Empresa cadastrada com sucesso !";
             return true;
         }else{
-        $_SESSION['mensagem'] = "Falha no cadastro !";
+        $_SESSION['mensagem_erro'] = "Falha no cadastro da empresa!";
         return false;
         }
     
@@ -264,7 +264,7 @@ class Database{
             $_SESSION['mensagem'] = "Usuário alterado com sucesso !";
             return true;
         }else{
-            $_SESSION['mensagem'] = "Falha ao alterar o usuário !";
+            $_SESSION['mensagem_erro'] = "Falha ao alterar o usuário !";
             return false;
         }
     }
@@ -290,7 +290,7 @@ class Database{
             $_SESSION['mensagem'] = "Empresa alterada com sucesso !";
             return true;
         }else{
-            $_SESSION['mensagem'] = "Falha ao alterar a empresa !";
+            $_SESSION['mensagem_erro'] = "Falha ao alterar a empresa !";
             return false;
         }
     }
@@ -305,7 +305,7 @@ class Database{
             header('Location: ../views/adminUser.view.php');
             return true;
         }else{
-            $_SERVER['mensagem']="Erro ao deletar usuário";
+            $_SERVER['mensagem_erro']="Erro ao deletar usuário";
             header('Location: ../views/adminUser.view.php');
             return false;
         }
@@ -321,7 +321,7 @@ class Database{
             header('Location: ../views/adminEmpr.view.php');
             return true;
         }else{
-            $_SERVER['mensagem']="Erro ao deletar empresa";
+            $_SERVER['mensagem_erro']="Erro ao deletar empresa";
             header('Location: ../views/adminEmpr.view.php');
             return false;
         }
