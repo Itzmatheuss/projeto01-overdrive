@@ -6,12 +6,9 @@ define('DBUSER', 'root');
 define('DBPASS', '');
 define('ROOT', '/estagiopoo/projeto01-overdrive');
 
-
-
 require_once("User.php");
 require_once("Empresa.php");
 require_once("../controllers/mensagem.php");
-
 
 
 class Database{
@@ -102,8 +99,6 @@ class Database{
         }
     }
 
-
-
     public function pesquisaUsuario($id)
     {
         $query = "SELECT * FROM usuarios WHERE id_user = :id";
@@ -189,8 +184,6 @@ class Database{
         }
     }
 
-
-    
     public function cadastraUsuario($usuario)
     {
         
@@ -221,7 +214,6 @@ class Database{
             }
         }
 
-    
     public function cadastraEmpresa($empresa)
     {
         $query = "INSERT INTO empresas (nome,nome_fantasia,cnpj,endereco,telefone,responsavel) VALUES (?,?,?,?,?,?) ";
@@ -277,7 +269,6 @@ class Database{
         }
     }
        
-    
     public function alterEmpresa($empresa,$id)
     {
         $query = "UPDATE empresas SET nome = ?, nome_fantasia = ?, cnpj = ? , endereco = ? , telefone = ? , responsavel= ? WHERE id_empresa = ?";
@@ -304,7 +295,6 @@ class Database{
         }
     }
        
-    
     public function deletarUsuario($id)
     {
         $query = "DELETE FROM usuarios WHERE id_user = ?";
@@ -336,7 +326,4 @@ class Database{
             return false;
         }
     }
-
-
 }
-    

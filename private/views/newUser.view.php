@@ -4,11 +4,9 @@ require_once('../controllers/autenticacao.php');
 require_once('../model/Database.php');
 
 $conn = new Database;
-
 $result = $conn->viewEmpresas();
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
