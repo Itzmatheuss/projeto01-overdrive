@@ -1,5 +1,6 @@
 <?php
 require_once('../model/Database.php');
+require_once('../controllers/autenticacao_cpf.php');
 
 $conn = new Database;
 $id = $_GET['id_empresa'];
