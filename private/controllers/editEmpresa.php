@@ -1,5 +1,5 @@
 <?php
-require_once('autenticacao.php');
+require_once('autenticacao_cpf.php');
 require_once('../model/Database.php');
 require_once('../model/Empresa.php');
 

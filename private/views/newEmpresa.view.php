@@ -1,6 +1,5 @@
 <?php
 
-require_once('../controllers/autenticacao.php');
 require_once('../controllers/autenticacao_cpf.php');
 
 ?>
