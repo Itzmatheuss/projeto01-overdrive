@@ -18,12 +18,6 @@ $conn= new Database;
 $empresa_dados = $conn->pesquisaFkEmpresa($fkempresa);
 $empresa = $empresa_dados['nome_fantasia'];
 
-if($empty($nome) || empty($cpf) || empty($cnh) || empty($telefone) || empty($endereco) || empty($carro) || empty($admin) || empty($fkempresa)){
-    $_SESSION['mensagem_erro'] = "Falha no cadastro do usuário !";
-    header("Location: ../views/adminUser.view.php");
-    exit();
-}
-
 try{
     
     if($senha!= null){

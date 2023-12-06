@@ -14,11 +14,7 @@ $responsavel=$_POST["responsavel"];
 
 $conn = new Database;
 
-if(empty($nome) || empty($nome_fantasia)|| empty($cnpj)|| empty($endereco|| empty($telefone)||  empty($responsavel) )){
-    $_SESSION['mensagem_erro'] = "Falha no cadastro da empresa !";
-    header("Location: ../views/adminEmpr.view.php");
-    exit();
-}
+
 
 $empresa = new Empresa($nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsavel);
 

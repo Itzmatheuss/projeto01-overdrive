@@ -38,7 +38,6 @@ class Database{
                     exit();
                 } else {
                     $_SESSION['user'] = $usuario[0]['nome'];
-                    $_SESSION['tipo'] = $usuario[0]['admin'];
                     header('Location:'.ROOT. '/private/views/user.view.php');
                     exit();
                 }
