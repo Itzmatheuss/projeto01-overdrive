@@ -1,11 +1,12 @@
 <?php
 
-define('DBNAME', 'projeto01-overdrive');
-define('DBHOST', 'localhost');
-define('DBUSER', 'root');
-define('DBPASS', '');
-define('ROOT', '/estagiopoo/projeto01-overdrive');
-
+if(!defined('DBNAME')){
+    define('DBNAME', 'projeto01-overdrive');
+    define('DBHOST', 'localhost');
+    define('DBUSER', 'root');
+    define('DBPASS', '');
+    define('ROOT', '/estagiopoo/projeto01-overdrive');
+}
 require_once("User.php");
 require_once("Empresa.php");
 require_once("../controllers/mensagem.php");
@@ -34,10 +35,12 @@ class Database{
             if(password_verify($senha,$usuario[0]['senha'])){
                 if($usuario[0]['admin'] == 1){
                     $_SESSION['user'] = $usuario[0]['nome'];
+                    $_SESSION['tipo'] = $usuario[0]['admin'];
                     header('Location:'.ROOT. '/private/views/adminUser.view.php');
                     exit();
                 } else {
                     $_SESSION['user'] = $usuario[0]['nome'];
+                    $_SESSION['tipo'] = $usuario[0]['admin'];
                     header('Location:'.ROOT. '/private/views/user.view.php');
                     exit();
                 }

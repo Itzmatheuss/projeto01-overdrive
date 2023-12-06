@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../model/Database.php");
+include_once("../model/Database.php");
 if(!$_SESSION['user']){
     header('Location:' .ROOT.'/public/index.php');
     exit();
