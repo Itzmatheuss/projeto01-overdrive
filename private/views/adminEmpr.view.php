@@ -1,7 +1,7 @@
 <?php
 
-require_once('../controllers/autenticacao.php');
 require_once('../controllers/autenticacao_cpf.php');
+
 require_once('../model/Database.php');
 ?>
 
