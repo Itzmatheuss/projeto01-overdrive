@@ -6,7 +6,7 @@ A proposta do sistema é de que exista dois "Tipos" de usuário, um administrado
 
 ## Como utilizar o projeto:
 
-+ O primeiro passo é fazer o download de um software de servidor local(Php e Mysql) indico o XAMPP(https://www.apachefriends.org/pt_br/index.html) e uma IDE como o Vscode,Sublime text.
++ O primeiro passo é fazer o download de um software de servidor local(Php e Mysql) como o XAMPP(https://www.apachefriends.org/pt_br/index.html) e uma IDE como o Vscode,Sublime text.
 + Com o servidor instalado, inicie o XAMPP certifique-se que o servidor web(APACHE) e o banco de dados(MySQL) estão em execução.
 + Abra o projeto na sua IDE.
 + Configure o banco SQL fornecido para criar as tabelas necessárias no banco de dados.
