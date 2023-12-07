@@ -4,7 +4,6 @@ session_start();
 require_once("../model/Database.php");
 
 try{
-
     if(empty($_POST['cpf']) || empty($_POST['senha'])){
         session_destroy();
         header('Location: /estagiopoo/projeto01-overdrive/public/index.php');

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,8 +14,7 @@
 </head>
 <body>
     <div class="img"></div>
-    <?php include('../private/controllers/mensagem.php'); ?>
-    <?php include('../private/controllers/mensagem_erro.php'); ?>
+    
 
     <main class="container">
         <div class="logo">

@@ -9,7 +9,7 @@ if(!defined('DBNAME')){
 }
 require_once("User.php");
 require_once("Empresa.php");
-require_once("../controllers/mensagem.php");
+
 
 
 class Database{
@@ -46,13 +46,13 @@ class Database{
                 }
             } else {
                 // Senha incorreta, redirecione de volta com uma mensagem de erro
-                $_SESSION['mensagem_erro']="Senha incorreta ! Tente novamente.";
+               
                 header('Location:'.ROOT. '/public/index.php');
                 exit();
             }
         } else {
             // Usuário não encontrado, redirecione de volta com uma mensagem de erro
-            $_SESSION['mensagem_erro']="Usuário não encontrado ! Tente novamente.";
+            
             header('Location:'.ROOT. '/public/index.php');
             exit();
         }
