@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
-  
+
 </head>
+
 <body>
     <div class="img"></div>
-    
-
+  
     <main class="container">
         <div class="logo">
             <img src="images/ten13.png" alt="">
@@ -24,28 +24,41 @@
         </div>
         <form action="/estagiopoo/projeto01-overdrive/private/controllers/login.php" method="post">
             <div class="inputs">
-            <span class="material-symbols-outlined">
-            group
-            </span>
-           
-            <input type="text" autocomplete="off" maxlength="14" placeholder="Insira seu CPF" id="cpf" name="cpf" required>
+                <span class="material-symbols-outlined">
+                    group
+                </span>
+
+                <input type="text" autocomplete="off" maxlength="14" placeholder="Insira seu CPF" id="cpf" name="cpf" required>
             </div>
             <div class="inputs">
-            <span class="material-symbols-outlined">
-            lock
-            </span>
-            
-            <input type="password" placeholder="Insira sua senha" name="senha" required>
+                <span class="material-symbols-outlined">
+                    lock
+                </span>
+
+                <input type="password" placeholder="Insira sua senha" name="senha" required>
             </div>
             <div class="inputs button">
-            <input type="submit" value="Entrar">
+                <input type="submit" value="Entrar">
             </div>
         </form>
     </main>
-        <script>
-            $(document).ready(function(){
-                $("#cpf").mask("000.000.000-00");
-            });
-        </script>
+    <script>
+        $(document).ready(function() {
+            $("#cpf").mask("000.000.000-00");
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            // Verifica se há parâmetros na URL
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Verifica se o parâmetro 'senhaIncorreta' está presente e é 'true'
+            if (urlParams.has('senhaIncorreta') && urlParams.get('senhaIncorreta') === 'true') {
+                alert("Senha incorreta!");
+            }
+            if (urlParams.has('usuarioIncorreto') && urlParams.get('usuarioIncorreto') === 'true') {
+                alert("Usuário inexistente !");
+            }
+        });
+    </script>
 </body>
+
 </html>

@@ -46,14 +46,12 @@ class Database{
                 }
             } else {
                 // Senha incorreta, redirecione de volta com uma mensagem de erro
-               
-                header('Location:'.ROOT. '/public/index.php');
+                header('Location: ' . ROOT . '/public/index.php?senhaIncorreta=true');
                 exit();
             }
         } else {
             // Usuário não encontrado, redirecione de volta com uma mensagem de erro
-            
-            header('Location:'.ROOT. '/public/index.php');
+            header('Location: ' . ROOT . '/public/index.php?usuarioIncorreto=true');
             exit();
         }
     }
