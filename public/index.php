@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/box.css">
     <link rel="shortcut icon" href="./images/ecology.png" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
+    <script src="js/alert.js"></script>
 
 </head>
 
@@ -41,6 +43,22 @@
                 <input type="submit" value="Entrar">
             </div>
         </form>
+        <div id="conf">
+            <div class="conf-content">
+                <strong class="alert">
+                    <p>Senha Incorreta !!</p>
+                </strong>
+                <button type="button" onclick="fecharConf()" id="back">Tentar Novamente</button>
+            </div>
+        </div>
+        <div id="conf_user">
+            <div class="conf-content">
+                <strong class="alert">
+                    <p>Usuário inexistente !!</p>
+                </strong>
+                <button type="button" onclick="fecharConf_user()" id="back">Tentar Novamente</button>
+            </div>
+        </div>
     </main>
     <script>
         $(document).ready(function() {
@@ -52,10 +70,10 @@
             
             // Verifica se o parâmetro 'senhaIncorreta' está presente e é 'true'
             if (urlParams.has('senhaIncorreta') && urlParams.get('senhaIncorreta') === 'true') {
-                alert("Senha incorreta!");
+                abrirConf("Senha Incorreta !");
             }
             if (urlParams.has('usuarioIncorreto') && urlParams.get('usuarioIncorreto') === 'true') {
-                alert("Usuário inexistente !");
+                abrirConf_user("Usuário inexistente !");
             }
         });
     </script>
