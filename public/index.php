@@ -70,10 +70,10 @@
             
             // Verifica se o parâmetro 'senhaIncorreta' está presente e é 'true'
             if (urlParams.has('senhaIncorreta') && urlParams.get('senhaIncorreta') === 'true') {
-                abrirConf("Senha Incorreta !");
+                abrirConf();
             }
             if (urlParams.has('usuarioIncorreto') && urlParams.get('usuarioIncorreto') === 'true') {
-                abrirConf_user("Usuário inexistente !");
+                abrirConf_user();
             }
         });
     </script>
