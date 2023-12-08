@@ -38,7 +38,7 @@ $result = $conn->viewEmpresas();
 
                         <div class="input-field">
                             <label for="cpf">CPF</label>
-                            <input type="text" placeholder="CPF" id="cpf" name="cpf" required>
+                            <input type="text" placeholder="CPF" id="cpf" minlength="14" name="cpf" required>
                         </div>
 
                         <div class="input-field">
@@ -48,12 +48,12 @@ $result = $conn->viewEmpresas();
 
                         <div class="input-field">
                             <label for="cnh">CNH</label>
-                            <input type="text" placeholder="CNH" id="cnh" name="cnh" required>
+                            <input type="text" placeholder="CNH" id="cnh" minlength="9" name="cnh" required>
                         </div>
 
                         <div class="input-field">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" placeholder="Telefone" id="telefone" name="telefone" required>
+                            <input type="tel" placeholder="Telefone" id="telefone" name="telefone" minlength="14" required>
                         </div>
 
                         <div class="input-field">

@@ -43,7 +43,7 @@ $emp = $conn->viewEmpresas();
 
                         <div class="input-field">
                             <label for="cpf">CPF</label>
-                            <input type="text" placeholder="Alterar CPF" id="cpf" value="<?= $result['cpf'] ?>" name="cpf">
+                            <input type="text" placeholder="Alterar CPF" id="cpf" value="<?= $result['cpf'] ?>" minlength="14" name="cpf">
                         </div>
 
                         <div class="input-field">
@@ -53,12 +53,12 @@ $emp = $conn->viewEmpresas();
 
                         <div class="input-field">
                             <label for="cnh">CNH</label>
-                            <input type="text" placeholder="Alterar CNH" id="cnh" value="<?= $result['cnh'] ?>" name="cnh">
+                            <input type="text" placeholder="Alterar CNH" id="cnh" value="<?= $result['cnh'] ?>" minlength="9" name="cnh">
                         </div>
 
                         <div class="input-field">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" placeholder="Alterar Telefone" id="telefone" value="<?= $result['telefone'] ?>" name="telefone">
+                            <input type="tel" placeholder="Alterar Telefone" id="telefone" value="<?= $result['telefone'] ?>" minlength="14" name="telefone">
                         </div>
 
                         <div class="input-field">
