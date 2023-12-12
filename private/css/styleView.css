@@ -12,7 +12,7 @@ body{
     background: url('fundo2.jpg') center/cover;
 }
 
-@media (max-width:1000px) {
+@media (max-width:1200px) {
     body{
         background: linear-gradient(to bottom,#7FFFD4,#40B0E6,#407CE6);
     }
@@ -41,7 +41,7 @@ body{
     }
 
 }
-@media (max-width:1000px) {
+@media (max-width:1200px) {
     #media-user tbody,
     #media-user tr,
     #media-user td{
