@@ -128,7 +128,6 @@ class Database{
             'telefone' => $dados[0]['telefone'],
             'endereco' => $dados[0]['endereco'],
             'carro' => $dados[0]['carro'],
-            'empresa' => $dados[0]['empresa'],
             'admin' => $dados[0]['admin'],
             'fkempresa' => $dados[0]['fkempresa']
         );

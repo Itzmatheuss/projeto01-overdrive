@@ -9,7 +9,6 @@ class Usuario{
     public $senha;
     public $telefone;
     public $endereco;
-    // public $empresa;
     public $carro;
     public $admin;
     public $fkempresa;
@@ -23,7 +22,6 @@ class Usuario{
         $this->telefone=$telefone;
         $this->endereco=$endereco;
         $this->carro=$carro;
-        // $this->empresa=$empresa;
         $this->admin=$admin;
         $this->fkempresa=$fkempresa;
     }
@@ -151,20 +149,6 @@ class Usuario{
 
         return $this;
     }
-
-   
-    // public function getEmpresa()
-    // {
-    //     return $this->empresa;
-    // }
-
-  
-    // public function setEmpresa($empresa)
-    // {
-    //     $this->empresa = $empresa;
-
-    //     return $this;
-    // }
 
     public function getFkempresa()
     {
