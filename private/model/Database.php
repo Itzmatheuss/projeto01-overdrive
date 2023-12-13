@@ -85,7 +85,7 @@ class Database{
             $query = "SELECT usuarios.*,empresas.nome_fantasia as empresa
                       FROM usuarios 
                       INNER JOIN empresas ON usuarios.fkempresa = empresas.id_empresa
-                      WHERE usuarios.nome LIKE :pesquisa OR empresas.nome LIKE :pesquisa
+                      WHERE usuarios.nome LIKE :pesquisa OR empresas.nome_fantasia LIKE :pesquisa
                       ORDER BY usuarios.id_user";
 
 
