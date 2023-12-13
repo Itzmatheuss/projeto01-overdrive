@@ -82,7 +82,11 @@ class Database{
         if(isset($_POST['search'])){
 
             $pesquisa = '%'. $_POST['search'].'%';
-            $query = "SELECT * FROM usuarios WHERE nome LIKE :pesquisa OR empresa LIKE :pesquisa";
+            $query = "SELECT usuarios.*,empresas.nome_fantasia as empresa
+                      FROM usuarios 
+                      INNER JOIN empresas ON usuarios.fkempresa = empresas.id_empresa
+                      WHERE usuarios.nome LIKE :pesquisa OR empresas.nome LIKE :pesquisa
+                      ORDER BY usuarios.id_user";
 
 
             $query_run = $this->banco->prepare($query);
@@ -93,7 +97,10 @@ class Database{
 
             return $query_run->fetchAll(PDO::FETCH_ASSOC);
         }else{
-            $query="SELECT * FROM usuarios";
+            $query="SELECT usuarios.*,empresas.nome_fantasia as empresa
+            FROM usuarios 
+            INNER JOIN empresas ON usuarios.fkempresa = empresas.id_empresa
+            ORDER BY usuarios.id_user";
             $query_run = $this->banco->prepare($query);
             $query_run->execute();
     

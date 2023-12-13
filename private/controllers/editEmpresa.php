@@ -21,6 +21,7 @@ $empresa = new Empresa($nome,$nome_fantasia,$cnpj,$endereco,$telefone,$responsav
 try {
     
     if($conn->alterEmpresa($empresa,$id)){
+        
         header("Location: ../views/adminEmpr.view.php");
         $_SESSION['mensagem']="Empresa alterada com sucesso !";
     }else{
