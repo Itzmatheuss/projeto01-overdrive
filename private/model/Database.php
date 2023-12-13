@@ -82,7 +82,8 @@ class Database{
         if(isset($_POST['search'])){
 
             $pesquisa = '%'. $_POST['search'].'%';
-            $query = "SELECT * FROM usuarios WHERE nome LIKE :pesquisa";
+            $query = "SELECT * FROM usuarios WHERE nome OR empresa LIKE :pesquisa";
+
 
             $query_run = $this->banco->prepare($query);
             //Proteção Sql injection

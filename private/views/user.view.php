@@ -29,7 +29,7 @@ require_once('../model/Database.php');
 
     <form action="user.view.php" method="post">
         <div class="box-search">
-            <input type="search" class="form-control w-25" placeholder="Pesquisar Nome" id="search" name="search">
+            <input type="search" class="form-control w-25" placeholder="Pesquisar Nome ou Empresa" id="search" name="search">
             <button class="btn btn-primary ">
                 <span class="material-symbols-outlined mt-1">
                     search
