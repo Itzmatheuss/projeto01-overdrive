@@ -14,8 +14,6 @@ $admin=$_POST["tipo"];
 $fkempresa = $_POST['fkempresa'];
 
 $conn= new Database;
-$empresa_dados = $conn->pesquisaFkEmpresa($fkempresa);
-$empresa = $empresa_dados['nome_fantasia'];
 
 if(empty($nome) || empty($cpf) || empty($senha) || empty($cnh) || empty($telefone) || empty($endereco) || empty($carro) || empty($fkempresa)){
     $_SESSION['mensagem_erro'] = "Falha no cadastro do usuário !";
@@ -23,7 +21,7 @@ if(empty($nome) || empty($cpf) || empty($senha) || empty($cnh) || empty($telefon
     exit();
 }
 
-$usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
+$usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$admin,$fkempresa);
 
 
 try{

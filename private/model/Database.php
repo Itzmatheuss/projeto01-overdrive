@@ -196,7 +196,7 @@ class Database{
     public function cadastraUsuario($usuario)
     {
         
-        $query = "INSERT INTO usuarios (nome, cpf, senha, cnh, telefone, endereco, carro, empresa, admin,fkempresa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO usuarios (nome, cpf, senha, cnh, telefone, endereco, carro, admin,fkempresa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
      
         
         $dados = array(
@@ -207,7 +207,6 @@ class Database{
             $usuario->getTelefone(),
             $usuario->getEndereco(),
             $usuario->getCarro(),
-            $usuario->getEmpresa(),
             $usuario->getAdmin(),
             $usuario->getFkempresa()
         );
@@ -250,8 +249,7 @@ class Database{
 
     public function alterUser($usuario,$id)
     {
-        $query = "UPDATE usuarios SET nome = ?, cpf = ?, senha = ? , cnh = ? , telefone = ? , endereco= ? , carro = ?, empresa = ?, admin = ?, fkempresa = ? WHERE id_user = ?";
-        
+        $query = "UPDATE usuarios SET nome = ?, cpf = ?, senha = ? , cnh = ? , telefone = ? , endereco= ? , carro = ?, admin = ?, fkempresa = ? WHERE id_user = ?";
         $query_run = $this->banco->prepare($query);
     
 
@@ -263,7 +261,6 @@ class Database{
             $usuario->getTelefone(),
             $usuario->getEndereco(),
             $usuario->getCarro(),
-            $usuario->getEmpresa(),
             $usuario->getAdmin(),
             $usuario->getFkempresa(),
             $id,

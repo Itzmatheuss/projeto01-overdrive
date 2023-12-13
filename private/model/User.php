@@ -9,12 +9,12 @@ class Usuario{
     public $senha;
     public $telefone;
     public $endereco;
-    public $empresa;
+    // public $empresa;
     public $carro;
     public $admin;
     public $fkempresa;
 
-    public function __construct($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa)
+    public function __construct($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$admin,$fkempresa)
     {
         $this->nome=$nome;
         $this->cpf=$cpf;
@@ -23,7 +23,7 @@ class Usuario{
         $this->telefone=$telefone;
         $this->endereco=$endereco;
         $this->carro=$carro;
-        $this->empresa=$empresa;
+        // $this->empresa=$empresa;
         $this->admin=$admin;
         $this->fkempresa=$fkempresa;
     }
@@ -153,18 +153,18 @@ class Usuario{
     }
 
    
-    public function getEmpresa()
-    {
-        return $this->empresa;
-    }
+    // public function getEmpresa()
+    // {
+    //     return $this->empresa;
+    // }
 
   
-    public function setEmpresa($empresa)
-    {
-        $this->empresa = $empresa;
+    // public function setEmpresa($empresa)
+    // {
+    //     $this->empresa = $empresa;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getFkempresa()
     {

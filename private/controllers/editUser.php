@@ -15,18 +15,16 @@ $fkempresa=$_POST["fkempresa"];
 $admin=$_POST["tipo"];
 
 $conn= new Database;
-$empresa_dados = $conn->pesquisaFkEmpresa($fkempresa);
-$empresa = $empresa_dados['nome_fantasia'];
 
 try{
     
     if($senha!= null){
-        $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
+        $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$admin,$fkempresa);
         }else{
             
             $result = $conn->pesquisaUsuario($id);
             $senha = $result['senha'];
-            $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$empresa,$admin,$fkempresa);
+            $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$admin,$fkempresa);
         }
     
     if($conn->alterUser($usuario,$id)){
