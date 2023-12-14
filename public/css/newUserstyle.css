@@ -102,7 +102,11 @@ form .fields .input-field{
     color: #f44040;
     visibility: hidden;
 }
-.input-field.error #senha{
+.input-field.error #confsenha {
+    border-color: #f22626;
+    
+}
+.input-field.error #senha {
     border-color: #f22626;
     
 }
