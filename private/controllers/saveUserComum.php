@@ -20,6 +20,10 @@ if(empty($nome) || empty($cpf) || empty($senha) || empty($cnh) || empty($telefon
     header("Location: error404.php");
     exit();
 }
+if($admin !=0){
+    header("Location:" .ROOT."/public/index.php?error=true");
+    exit();
+}
 
 $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$admin,$fkempresa);
 
