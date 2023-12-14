@@ -1,3 +1,4 @@
+
 function abrirConf(){
     document.getElementById("conf").style.display = "block";
 

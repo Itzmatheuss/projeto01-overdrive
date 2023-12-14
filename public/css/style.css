@@ -108,3 +108,17 @@ form .button input:hover{
     z-index: -1; /* Set a lower z-index for .img to make it appear behind main */
     background: url('../images/fundo.jpg') center/cover; /* Replace 'your-image.jpg' with your actual image path */
 }
+
+.newuser{
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+.newuser a {
+    text-decoration: none;
+    color:#1b54f0;
+}
+
+a:visited{
+    color: #1b54f0;
+}

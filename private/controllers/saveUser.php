@@ -26,6 +26,7 @@ $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$admin,
 
 try{
     if($conn->cadastraUsuario($usuario)){
+        $_SESSION['mensagem']="Usuário cadastrado com sucesso !";
         header("Location: ../views/adminUser.view.php");
         exit();
     }else{

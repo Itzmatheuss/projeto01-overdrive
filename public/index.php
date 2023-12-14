@@ -1,3 +1,12 @@
+<?php
+if(isset($_GET['success']) && $_GET['success']=='true'){
+    echo '<script>alert("Cadastro bem-sucedido!");</script>';
+}
+if (isset($_GET['error']) && $_GET['error'] == 'true') {
+    echo '<script>alert("Erro durante o cadastro.");</script>';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -41,6 +50,9 @@
             </div>
             <div class="inputs button">
                 <input type="submit" value="Entrar">
+            </div>
+            <div class="newuser">
+                <p>Ainda não tem conta ?<a href="newUserComum.php"> Criar conta</a> </p>
             </div>
         </form>
         <div id="conf">

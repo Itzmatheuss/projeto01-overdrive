@@ -12,6 +12,7 @@ require_once("Empresa.php");
 
 
 
+
 class Database{
     private $banco;
 
@@ -211,14 +212,19 @@ class Database{
         );
         print_r($dados);
         $query_run = $this->banco->prepare($query);
-        
-        if ($query_run->execute($dados)) {
-            $_SESSION['mensagem'] = "Usuário cadastrado com sucesso !";
-            return true;
-        }else{
-            $_SESSION['mensagem_erro'] = "Falha no cadastro do usuário!";
-            return false;
+        if($_SESSION['tipo']==1){
+            if ($query_run->execute($dados)) {
+                $_SESSION['mensagem'] = "Usuário cadastrado com sucesso !";
+                return true;
+            }else{
+                $_SESSION['mensagem_erro'] = "Falha no cadastro do usuário!";
+                return false;
             }
+        }else{
+            if ($query_run->execute($dados)) {
+            return true;
+        }
+        }
         }
 
     public function cadastraEmpresa($empresa)
