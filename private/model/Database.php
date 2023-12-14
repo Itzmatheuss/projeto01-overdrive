@@ -210,20 +210,23 @@ class Database{
             $usuario->getAdmin(),
             $usuario->getFkempresa()
         );
-        print_r($dados);
         $query_run = $this->banco->prepare($query);
-        if($_SESSION['tipo']==1){
+        
+        if(!$_SESSION['user']){
             if ($query_run->execute($dados)) {
-                $_SESSION['mensagem'] = "Usuário cadastrado com sucesso !";
                 return true;
             }else{
-                $_SESSION['mensagem_erro'] = "Falha no cadastro do usuário!";
                 return false;
             }
-        }else{
-            if ($query_run->execute($dados)) {
-            return true;
         }
+
+        if ($query_run->execute($dados)) {
+            $_SESSION['mensagem'] = "Usuário cadastrado com sucesso !";
+            return true;
+        
+        }else{
+            $_SESSION['mensagem'] = "Falha no cadastro do usuário !";
+            return false;
         }
         }
 

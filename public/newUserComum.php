@@ -14,6 +14,7 @@ $result = $conn->viewEmpresas();
     <title>Novo Usuários</title>
     <link rel="shortcut icon" href="ecology.png" type="image/x-icon">
     <link rel="stylesheet" href="css/newUserstyle.css">
+    <link rel="stylesheet" href="./css/box.css">
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
 </head>
@@ -94,7 +95,7 @@ $result = $conn->viewEmpresas();
                 </div>
             </div>
         </form>
-    </div>
+
     <script>
         $(document).ready(function(){
         $("#cpf").mask("000.000.000-00");

@@ -1,12 +1,3 @@
-<?php
-if(isset($_GET['success']) && $_GET['success']=='true'){
-    echo '<script>alert("Cadastro bem-sucedido!");</script>';
-}
-if (isset($_GET['error']) && $_GET['error'] == 'true') {
-    echo '<script>alert("Erro durante o cadastro.");</script>';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -71,6 +62,25 @@ if (isset($_GET['error']) && $_GET['error'] == 'true') {
                 <button type="button" onclick="fecharConf_user()" id="back">Tentar Novamente</button>
             </div>
         </div>
+
+        <div id="confnewUser">
+            <div class="conf-content">
+                <strong class="alert-success">
+                    <p>Cadastro efetuado com sucesso !!</p>
+                </strong>
+                <button type="button" onclick="fecharSucesso()" id="back">Fazer login</button>
+            </div>
+        </div>
+        <div id="conf_newUser">
+            <div class="conf-content">
+                <strong class="alert">
+                    <p>Falha no cadastro !!</p>
+                </strong>
+                <button type="button" onclick="fecharErro()" id="back">Tentar Novamente</button>
+            </div>
+        </div>
+    </div>
+
     </main>
     <script>
         $(document).ready(function() {
@@ -86,6 +96,13 @@ if (isset($_GET['error']) && $_GET['error'] == 'true') {
             }
             if (urlParams.has('usuarioIncorreto') && urlParams.get('usuarioIncorreto') === 'true') {
                 abrirConf_user();
+            }
+
+            if (urlParams.has('sucesso') && urlParams.get('sucesso') === 'true') {
+                abrirSucesso();
+            }
+            if (urlParams.has('error') && urlParams.get('error') === 'true') {
+                abrirErro();
             }
         });
     </script>

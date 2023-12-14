@@ -26,7 +26,7 @@ $usuario = new Usuario($nome,$cpf,$senha,$cnh,$telefone,$endereco,$carro,$admin,
 
 try{
     if($conn->cadastraUsuario($usuario)){
-        header("Location:" .ROOT."/public/index.php?success=true");
+        header("Location:" .ROOT."/public/index.php?sucesso=true");
         exit();
     }else{
         header("Location:" .ROOT."/public/index.php?error=true");
