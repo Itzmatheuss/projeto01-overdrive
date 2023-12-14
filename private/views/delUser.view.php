@@ -7,6 +7,7 @@ $conn = new Database;
 $id = $_GET['id_user'];
 
 $result = $conn->pesquisaUsuario($id);
+$emp = $conn->viewEmpresas();
 
 ?>
 
@@ -70,10 +71,17 @@ $result = $conn->pesquisaUsuario($id);
                             <label for="carro">Carro</label>
                             <input type="text" placeholder="Carro" id="carro" value="<?=$result['carro']?>">
                         </div>
-
                         <div class="input-field">
-                            <label for="empresa">Empresa</label>
-                            <input type="text" placeholder="Empresa" id="empresa" value="<?=$result['empresa']?>">
+                            <label for="fkempresa">Empresa</label>
+                            <select name="fkempresa" id="fkempresa" required>
+                                <?php
+
+                                foreach ($emp as $row) {
+                                    $selected = ($result['fkempresa'] == $row['id_empresa']) ? 'selected' : '';
+                                    echo "<option value='{$row['id_empresa']}' $selected>{$row['nome_fantasia']}</option>";
+                                }
+                                ?>
+                            </select>
                         </div>
 
                         <div class="input-field-type">

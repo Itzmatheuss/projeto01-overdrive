@@ -49,7 +49,7 @@
         <div id="conf">
             <div class="conf-content">
                 <strong class="alert">
-                    <p>Senha Incorreta !!</p>
+                    <p>Usuário ou senha incorreta !!</p>
                 </strong>
                 <button type="button" onclick="fecharConf()" id="back">Tentar Novamente</button>
             </div>
@@ -57,7 +57,7 @@
         <div id="conf_user">
             <div class="conf-content">
                 <strong class="alert">
-                    <p>Usuário inexistente !!</p>
+                    <p>Usuário ou senha incorreta !!</p>
                 </strong>
                 <button type="button" onclick="fecharConf_user()" id="back">Tentar Novamente</button>
             </div>

@@ -133,6 +133,18 @@ form .fields .input-field-type .label{
     cursor: pointer;
     font-size: 16px;
 }
+form .input-field select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px;
+    width: 188px;
+}
 
 form .btn-send:hover{
     background-color: #f44040;
