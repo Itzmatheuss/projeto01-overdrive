@@ -98,6 +98,17 @@ form .fields .input-field{
     height: 42px;
     margin: 8px 0;
 }
+.input-field span{
+    color: #f44040;
+    visibility: hidden;
+}
+.input-field.error #senha{
+    border-color: #f22626;
+    
+}
+.input-field.error span{
+    visibility: visible;
+}
 form .input-field select{
     outline: none;
     font-size: 14px;

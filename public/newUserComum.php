@@ -11,12 +11,13 @@ $result = $conn->viewEmpresas();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Novo Usuários</title>
+    <title>Novo Usuário</title>
     <link rel="shortcut icon" href="ecology.png" type="image/x-icon">
     <link rel="stylesheet" href="css/newUserstyle.css">
     <link rel="stylesheet" href="./css/box.css">
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery.mask.min.js"></script>
+    <script src="js/alert.js"></script>
 </head>
 <body>
     <div class="img"></div>
@@ -42,6 +43,12 @@ $result = $conn->viewEmpresas();
                         <div class="input-field">
                             <label for="senha">Senha</label>
                             <input type="password" placeholder="Escolha sua senha" name="senha" id="senha" maxlength="25" required>
+                            <span>Mensagem erro</span>
+                        </div>
+                        <div class="input-field">
+                            <label for="confsenha">Confirmar senha</label>
+                            <input type="password" placeholder="Confirme sua senha" name="senha" id="confsenha" maxlength="25" required>
+                            <span>Mensagem erro</span>
                         </div>
 
                         <div class="input-field">
@@ -79,16 +86,14 @@ $result = $conn->viewEmpresas();
                         </div>
 
                         <div class="input-field-type">
-                            <div class="label"><label for="tipo">Tipo de Usuário:</label>
-                            <label for="user">Comum</label>
-                            <input type="radio" name="tipo" value="0" id="user" required>
+                            <input type="hidden" name="tipo" value="0" id="user">
                             </div>
                         </div>
                         </div>
                     
                         <div class="button">
                                 <a href="index.php" class="btn-back">Voltar</a>
-                            <button class="btn-send" type="submit" name="salvar_user">
+                            <button class="btn-send" type="button" onclick="checkPassword()" name="salvar_user">
                                 <span class="btnText">Enviar</span>
                             </button>
                         </div>
