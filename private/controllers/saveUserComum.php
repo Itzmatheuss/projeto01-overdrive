@@ -17,7 +17,7 @@ $fkempresa = $_POST['fkempresa'];
 $conn= new Database;
 
 if(empty($nome) || empty($cpf) || empty($senha) || empty($cnh) || empty($telefone) || empty($endereco) || empty($carro) || empty($fkempresa)){
-    header("Location: error404.php");
+    header("Location:" .ROOT."/public/index.php?error=true");
     exit();
 }
 if($admin !=0){

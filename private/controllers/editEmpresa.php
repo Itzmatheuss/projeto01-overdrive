@@ -22,11 +22,11 @@ try {
     
     if($conn->alterEmpresa($empresa,$id)){
         
-        header("Location: ../views/adminEmpr.view.php");
         $_SESSION['mensagem']="Empresa alterada com sucesso !";
-    }else{
         header("Location: ../views/adminEmpr.view.php");
+    }else{
         $_SESSION['mensagem_erro']="Falha ao alterar Empresa ! Tente novamente.";
+        header("Location: ../views/adminEmpr.view.php");
     }
 
 } 

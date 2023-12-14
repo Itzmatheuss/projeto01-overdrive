@@ -31,7 +31,7 @@ try{
         exit();
     }else{
         $_SESSION['mensagem_erro'] = "Falha no cadastro do usuário !";
-        header("Location: error404.php");
+        header("Location: ../views/adminUser.view.php");
         exit();
     }
 }
