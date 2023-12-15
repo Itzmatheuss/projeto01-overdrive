@@ -340,4 +340,15 @@ class Database{
             return false;
         }
     }
+
+    public function verificaCpf($cpf)
+    {
+        $dados = $this->viewUsuarios();
+        foreach($dados as $user){
+            if($cpf == $user['cpf']){
+                return true;
+            }
+        }
+        return false;
+    }
 }

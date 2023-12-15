@@ -16,6 +16,14 @@ $admin=$_POST["tipo"];
 
 $conn= new Database;
 
+$check = $conn->verificaCpf($cpf);
+
+if($check==1){
+    $_SESSION['mensagem_erro']="Cpf existente ! Tente novamente.";
+    header("Location: ../views/adminUser.view.php");
+    exit();
+}
+
 try{
     
     if($senha!= null){
@@ -28,11 +36,11 @@ try{
         }
     
     if($conn->alterUser($usuario,$id)){
-        header("Location: ../views/adminUser.view.php");
         $_SESSION['mensagem']="Usuário alterado com sucesso !";
-    }else{
         header("Location: ../views/adminUser.view.php");
+    }else{
         $_SESSION['mensagem_erro']="Falha no cadastro ! Tente novamente.";
+        header("Location: ../views/adminUser.view.php");
     }
 
 }

@@ -15,6 +15,13 @@ $fkempresa = $_POST['fkempresa'];
 
 $conn= new Database;
 
+$check = $conn->verificaCpf($cpf);
+if($check==true){
+    $_SESSION['mensagem']="Cpf Existente tente novamente !";
+    header("Location: ../views/newUser.view.php");
+}
+
+
 if(empty($nome) || empty($cpf) || empty($senha) || empty($cnh) || empty($telefone) || empty($endereco) || empty($carro) || empty($fkempresa)){
     $_SESSION['mensagem_erro'] = "Falha no cadastro do usuário !";
     header("Location: ../views/adminUser.view.php");
