@@ -341,14 +341,19 @@ class Database{
         }
     }
 
-    public function verificaCpf($cpf)
+    public function verificaCpf($cpf,$id)
     {
-        $dados = $this->viewUsuarios();
-        foreach($dados as $user){
-            if($cpf == $user['cpf']){
-                return true;
-            }
+        $query = $this->banco->prepare("SELECT cpf from usuarios WHERE cpf = :cpf");
+        $dados = $this->pesquisaUsuario($id);
+        $query->bindParam(':cpf',$cpf);
+        $query->execute();
+   
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+    
+        if(empty($id) || $result['cpf'] == $dados['cpf']){
+            return false;
+        }else{
+            return true;
         }
-        return false;
     }
 }

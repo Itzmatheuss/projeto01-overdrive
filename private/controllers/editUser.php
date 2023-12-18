@@ -16,7 +16,9 @@ $admin=$_POST["tipo"];
 
 $conn= new Database;
 
-$check = $conn->verificaCpf($cpf);
+$check = $conn->verificaCpf($cpf,$id);
+
+
 
 if($check==1){
     $_SESSION['mensagem_erro']="Cpf existente ! Tente novamente.";

@@ -15,10 +15,12 @@ $fkempresa = $_POST['fkempresa'];
 
 $conn= new Database;
 
-$check = $conn->verificaCpf($cpf);
-if($check==true){
-    $_SESSION['mensagem']="Cpf Existente tente novamente !";
-    header("Location: ../views/newUser.view.php");
+$check = $conn->verificaCpf($cpf,$id);
+
+if($check==0){
+    $_SESSION['mensagem_erro']="Cpf existente ! Tente novamente.";
+    header("Location: error404.php");
+    exit();
 }
 
 
